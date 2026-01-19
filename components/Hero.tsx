@@ -1,19 +1,12 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [imageError, setImageError] = useState(false)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start']
-  })
-
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
     <section
@@ -29,9 +22,9 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-gray-800 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-gray-800 leading-tight">
             Empowering Industries & Communities through{' '}
-            <span className="font-serif italic text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800">
+            <span className="font-serif italic text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800">
               Digital Innovation
             </span>
           </h1>
@@ -39,7 +32,6 @@ export default function Hero() {
 
         {/* Office Image Section */}
         <motion.div
-          style={{ y: imageY, opacity }}
           className="relative"
         >
           <motion.div
@@ -51,8 +43,8 @@ export default function Hero() {
             <div className="w-full h-[600px] md:h-[700px] relative bg-gradient-to-br from-slate-100 via-blue-50 to-purple-50">
               {!imageError ? (
                 <Image
-                  src="/images/office-hero.jpg"
-                  alt="Modern office workspace with reception desk and open-plan office area"
+                  src="/images/office-hero-new.png"
+                  alt="Modern office workspace"
                   fill
                   className="object-cover"
                   priority
@@ -84,9 +76,9 @@ export default function Hero() {
               }}
               className="absolute bottom-8 right-8 bg-white rounded-2xl p-6 shadow-xl"
             >
-              <div className="text-5xl md:text-6xl font-bold text-[#2D499A] mb-2">250k +</div>
-              <div className="text-base md:text-lg font-medium text-gray-800 mb-1">Happy Businesses</div>
-              <div className="text-sm text-gray-600 leading-tight max-w-[180px]">
+              <div className="text-3xl md:text-6xl font-bold text-[#2D499A] mb-2">250k +</div>
+              <div className="text-sm md:text-lg font-medium text-gray-800 mb-1">Happy Businesses</div>
+              <div className="text-xs md:text-sm text-gray-600 leading-tight max-w-[180px]">
                 Customers we have nation-wide
               </div>
             </motion.div>

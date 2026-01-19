@@ -136,10 +136,10 @@ export default function Services() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight"
+                className="text-3xl md:text-5xl lg:text-6xl font-normal text-white leading-tight"
               >
                 Empower your business with innovative{' '}
-                <span className="font-serif italic text-5xl md:text-6xl lg:text-7xl">
+                <span className="font-serif italic text-4xl md:text-6xl lg:text-7xl">
                   digital services
                 </span>
               </motion.h2>
@@ -218,9 +218,8 @@ export default function Services() {
                   )}
 
                   <motion.div
-                    className={`relative flex items-center gap-4 p-4 rounded-xl cursor-pointer ${
-                      isActive || isHovered ? 'bg-white/5' : 'hover:bg-white/5'
-                    }`}
+                    className={`relative flex items-center gap-4 p-4 rounded-xl cursor-pointer ${isActive || isHovered ? 'bg-white/5' : 'hover:bg-white/5'
+                      }`}
                     animate={{
                       paddingLeft: isActive ? '1.5rem' : '1rem',
                     }}
@@ -257,26 +256,12 @@ export default function Services() {
                     {/* Number and Title */}
                     <div className="flex items-center gap-4 flex-1">
                       <span
-                        className="text-white"
-                        style={{
-                          fontFamily: '"Playfair Display", serif',
-                          fontSize: '48px',
-                          fontStyle: 'italic',
-                          fontWeight: 400,
-                          lineHeight: '58px',
-                        }}
+                        className="text-white font-serif italic text-3xl md:text-5xl font-normal leading-tight"
                       >
                         {service.number}.
                       </span>
                       <motion.h3
-                        className="text-white"
-                        style={{
-                          fontFamily: '"Mona Sans", sans-serif',
-                          fontSize: '54px',
-                          fontStyle: 'normal',
-                          fontWeight: 300,
-                          lineHeight: '80px',
-                        }}
+                        className="text-white font-sans text-3xl md:text-[54px] font-light leading-tight md:leading-[80px]"
                         animate={{
                           opacity: isActive ? 1 : 0.9,
                         }}
@@ -290,17 +275,15 @@ export default function Services() {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                        isActive || isHovered
+                      className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isActive || isHovered
                           ? 'bg-red-500 hover:bg-red-600'
                           : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
+                        }`}
                       aria-label={`View ${service.title}`}
                     >
                       <svg
-                        className={`w-5 h-5 ${
-                          isActive || isHovered ? 'text-white' : 'text-gray-700'
-                        }`}
+                        className={`w-5 h-5 ${isActive || isHovered ? 'text-white' : 'text-gray-700'
+                          }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

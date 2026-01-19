@@ -36,7 +36,7 @@ const milestones = [
     },
     {
         title: 'First and the largest Merchant Solution Provider (MSP) in Bangladesh',
-        description: 'SSL Wireless is the first and largest payment gateway in Bangladesh - SSLCOMMERZ which is licensed as a Payment Service Operator (PSO) by Bangladesh Bank. It provides a secure platform for over 5000+ merchants to accept online digital payments from their customers.',
+        description: 'SSL Wireless is the first and largest payment gateway in Bangladesh - SSLCOMMERZ which is licensed as a Payment Service Operator (PSO) by Bangladesh Bank. It provides a secure platform for over 10000+ merchants to accept online digital payments from their customers.',
         image: '/images/sslcommerz.png',
         icon: 'bank'
     },
@@ -115,10 +115,10 @@ export default function OurCompany() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-200 text-sm font-bold tracking-widest uppercase mb-6">
                             Since 1999
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-normal text-white mb-8 leading-tight">
+                        <h1 className="text-3xl md:text-6xl font-normal text-white mb-8 leading-tight">
                             SSL Wireless is recognized for its <span className="font-serif italic text-blue-200">rapid development</span> and efficient project execution.
                         </h1>
-                        <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+                        <p className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl">
                             By working with industry-standard technologies, we empower organizations through innovation and excellence.
                         </p>
                     </motion.div>
@@ -132,8 +132,8 @@ export default function OurCompany() {
                         {[
                             { label: 'Enterprise Services', value: '90+' },
                             { label: 'Banks and Institutions', value: '52+' },
-                            { label: 'Corporate Clients', value: '2100+' },
-                            { label: 'Ecommerce Clients', value: '5000+' }
+                            { label: 'Corporate Clients', value: '3500+' },
+                            { label: 'Ecommerce Clients', value: '10000+' }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
@@ -143,7 +143,7 @@ export default function OurCompany() {
                                 transition={{ delay: i * 0.1 }}
                                 className="text-center"
                             >
-                                <div className="text-4xl md:text-5xl font-bold text-[#2D499A] mb-2 font-serif">{stat.value}</div>
+                                <div className="text-3xl md:text-5xl font-bold text-[#2D499A] mb-2 font-serif">{stat.value}</div>
                                 <div className="text-sm font-medium text-gray-500 uppercase tracking-widest leading-tight px-4">{stat.label}</div>
                             </motion.div>
                         ))}
@@ -177,8 +177,8 @@ export default function OurCompany() {
                                 <div className="mb-8 p-5 bg-white/20 backdrop-blur-md rounded-2xl inline-block group-hover:scale-110 group-hover:bg-white/40 transition-all duration-500 text-[#2D499A] border border-white/30 shadow-sm">
                                     <Icon name={item.icon} className="w-10 h-10" />
                                 </div>
-                                <h3 className="text-3xl font-normal mb-4 font-serif italic text-gray-900 relative z-10">{item.title}</h3>
-                                <p className="text-gray-600 leading-relaxed text-lg relative z-10 font-medium">{item.description}</p>
+                                <h3 className="text-2xl md:text-3xl font-normal mb-4 font-serif italic text-gray-900 relative z-10">{item.title}</h3>
+                                <p className="text-gray-600 leading-relaxed text-base md:text-lg relative z-10 font-medium">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -221,7 +221,7 @@ export default function OurCompany() {
                                     transition={{ duration: 0.8 }}
                                     className={index % 2 === 1 ? 'lg:order-1' : ''}
                                 >
-                                    <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-8 leading-tight">
+                                    <h2 className="text-2xl md:text-4xl font-normal text-gray-900 mb-8 leading-tight">
                                         {milestone.title}
                                     </h2>
                                     <p className="text-lg text-gray-600 leading-relaxed">
@@ -243,7 +243,7 @@ export default function OurCompany() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-6">
+                        <h2 className="text-3xl md:text-5xl font-normal text-gray-900 mb-6">
                             How we <span className="font-serif italic text-blue-900">work</span>
                         </h2>
                     </motion.div>
@@ -261,7 +261,7 @@ export default function OurCompany() {
                                 <div className="mb-8 text-[#2D499A]">
                                     <Icon name={step.icon} className="w-12 h-12" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
                                 <p className="text-gray-600 leading-relaxed font-medium">{step.description}</p>
                             </motion.div>
                         ))}

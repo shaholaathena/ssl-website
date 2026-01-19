@@ -9,6 +9,8 @@ import Services from '@/components/Services'
 import Products from '@/components/Products'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
+import HomeAbout from '@/components/HomeAbout'
+import HomeTagline from '@/components/HomeTagline'
 
 export default function Home() {
   useSmoothScroll()
@@ -17,11 +19,13 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <HomeAbout />
       <Clients />
       <Approach />
       <Services />
       <Products />
       <Testimonials />
+      <HomeTagline />
       <Footer />
     </main>
   )

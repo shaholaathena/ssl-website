@@ -1,11 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isAboutOpen, setIsAboutOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false)
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <motion.header
@@ -166,8 +176,128 @@ export default function Header() {
             </motion.button>
           </Link>
 
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-gray-900 z-50 relative"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span
+                className={`bg-current block transition-all duration-300 ease-out 
+                  h-0.5 w-6 rounded-sm ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}
+              />
+              <span
+                className={`bg-current block transition-all duration-300 ease-out 
+                  h-0.5 w-6 rounded-sm my-0.5 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+              />
+              <span
+                className={`bg-current block transition-all duration-300 ease-out 
+                  h-0.5 w-6 rounded-sm ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}
+              />
+            </div>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed inset-0 top-0 bg-white z-40 pt-24 overflow-y-auto lg:hidden"
+          >
+            <div className="container mx-auto px-6 flex flex-col space-y-6">
+              <Link
+                href="/"
+                className="text-2xl font-semibold text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+
+              <div className="flex flex-col">
+                <button
+                  onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                  className="flex items-center justify-between text-2xl font-semibold text-gray-900"
+                >
+                  <span>About Us</span>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {isMobileAboutOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="ml-4 mt-4 flex flex-col space-y-4 border-l-2 border-gray-100 pl-4"
+                    >
+                      <Link href="/our-company" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Our Company
+                      </Link>
+                      <Link href="/our-milestones" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Our Milestones
+                      </Link>
+                      <Link href="/our-certifications" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Our Certifications
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link
+                href="/services"
+                className="text-2xl font-semibold text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="/research"
+                className="text-2xl font-semibold text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Research
+              </Link>
+              <Link
+                href="/news-and-events"
+                className="text-2xl font-semibold text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                News
+              </Link>
+              <Link
+                href="/careers"
+                className="text-2xl font-semibold text-gray-900"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Careers
+              </Link>
+
+              <div className="pt-8 pb-12">
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full">
+                  <button
+                    className="w-full flex items-center justify-center space-x-2 bg-[#2D499A] text-white py-4 rounded-full font-medium text-lg"
+                  >
+                    <span>Get In Touch</span>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   )
 }

@@ -70,7 +70,7 @@ export default function Products() {
               <div className="flex items-center gap-2 text-blue-700 font-bold mb-6 tracking-wide uppercase text-sm">
                 <span className="text-lg">+</span> Products
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1]">
                 Explore Our <br />
                 <span className="font-serif italic font-light text-gray-800">
                   Products
@@ -83,7 +83,7 @@ export default function Products() {
                 Explore innovative products built to streamline workflows,
                 enhance engagement, and drive measurable digital impact.
               </p>
-             
+
             </div>
           </motion.div>
 
@@ -161,10 +161,10 @@ export default function Products() {
                               Product {index + 1}
                             </span>
                           </div>
-                          <h3 className={`text-4xl md:text-5xl lg:text-6xl font-bold ${product.textColor} mb-4`}>
+                          <h3 className={`text-3xl md:text-5xl lg:text-6xl font-bold ${product.textColor} mb-4`}>
                             {product.name}
                           </h3>
-                          <p className={`text-lg lg:text-xl ${product.textColor} opacity-70 leading-relaxed`}>
+                          <p className={`text-base lg:text-xl ${product.textColor} opacity-70 leading-relaxed`}>
                             {product.description}
                           </p>
                         </motion.div>
