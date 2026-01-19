@@ -11,7 +11,8 @@ const products = [
     gradient: 'from-blue-50 via-white to-indigo-50',
     textColor: 'text-gray-900',
     accentColor: 'from-blue-600 to-indigo-600',
-    image: '/images/sslcommerz.png',
+    image: '/images/sslcommerz-v2.png',
+    logo: '/images/sslcommerz-logo-v2.png'
   },
   {
     id: 2,
@@ -20,16 +21,18 @@ const products = [
     gradient: 'from-cyan-50 via-white to-teal-50',
     textColor: 'text-gray-900',
     accentColor: 'from-cyan-600 to-teal-600',
-    image: '/images/cashbaba.png',
+    image: '/images/cashbaba-v2.png',
+    logo: '/images/cashbaba-logo-v2.png'
   },
   {
     id: 3,
     name: 'Hercules',
-    description: 'Enterprise-grade application development platform designed to accelerate your digital transformation. Build, deploy, and scale with confidence.',
+    description: 'A complete supply chain and field automation platform that connects producers, distributors, and retailers in one real-time digital flow – from order to delivery to payment reconciliation.',
     gradient: 'from-amber-50 via-white to-orange-50',
     textColor: 'text-gray-900',
     accentColor: 'from-amber-600 to-orange-600',
-    image: '/images/hercules.png',
+    image: '/images/hercules-v2.png',
+    logo: '/images/hercules-logo-v2.png'
   },
 ]
 
@@ -100,34 +103,34 @@ export default function Products() {
               const y = useTransform(
                 smoothProgress,
                 [
-                  Math.max(0, productStart - 0.15),
+                  Math.max(0, productStart - 0.1),
                   productStart,
+                  productEnd - 0.05,
                   productEnd,
-                  Math.min(1, nextStart + 0.15),
                 ],
-                ['100%', '0%', '0%', '0%']
+                ['100%', '0%', '0%', '-100%']
               )
 
               const opacity = useTransform(
                 smoothProgress,
                 [
-                  Math.max(0, productStart - 0.15),
+                  Math.max(0, productStart - 0.1),
                   productStart,
+                  productEnd - 0.05,
                   productEnd,
-                  Math.min(1, nextStart + 0.15),
                 ],
-                [0, 1, 1, 0.4]
+                [0, 1, 1, 0]
               )
 
               const scale = useTransform(
                 smoothProgress,
                 [
-                  Math.max(0, productStart - 0.15),
+                  Math.max(0, productStart - 0.1),
                   productStart,
+                  productEnd - 0.05,
                   productEnd,
-                  Math.min(1, nextStart + 0.15),
                 ],
-                [0.95, 1, 1, 0.96]
+                [0.95, 1, 1, 1.05]
               )
 
               // Calculate z-index: later products appear on top
@@ -156,10 +159,14 @@ export default function Products() {
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                          <div className="inline-block mb-4">
-                            <span className={`text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r ${product.accentColor} text-white`}>
-                              Product {index + 1}
-                            </span>
+                          <div className="inline-block mb-4 h-12">
+                            {product.logo ? (
+                              <img src={product.logo} alt={product.name} className="h-full w-auto object-contain brightness-100" />
+                            ) : (
+                              <span className={`text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r ${product.accentColor} text-white`}>
+                                Product {index + 1}
+                              </span>
+                            )}
                           </div>
                           <h3 className={`text-3xl md:text-5xl lg:text-6xl font-bold ${product.textColor} mb-4`}>
                             {product.name}

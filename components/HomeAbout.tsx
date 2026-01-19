@@ -37,7 +37,7 @@ export default function HomeAbout() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-2xl md:text-4xl lg:text-6xl leading-[1.1] text-gray-900 mb-16 font-medium"
+                            className="text-3xl md:text-4xl lg:text-6xl leading-[1.1] text-gray-900 mb-16 font-medium"
                         >
                             We deliver innovative ideas to{' '}
                             <span className="font-serif italic block mt-2 mb-1 font-normal">elevate your digital footprint</span>
