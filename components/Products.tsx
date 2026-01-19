@@ -83,26 +83,7 @@ export default function Products() {
                 Explore innovative products built to streamline workflows,
                 enhance engagement, and drive measurable digital impact.
               </p>
-              <button className="bg-white border border-gray-200 text-gray-700 px-2 pl-6 py-2 rounded-full flex items-center justify-between gap-4 shadow-sm hover:shadow-md transition-all group">
-                <span className="font-medium text-sm">See all Products</span>
-                <div className="bg-blue-600 h-8 w-8 rounded-full flex items-center justify-center text-white group-hover:translate-x-1 transition-transform">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 18L15 12L9 6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </button>
+             
             </div>
           </motion.div>
 

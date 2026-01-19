@@ -4,13 +4,13 @@ import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import Icon from '@/components/Icon'
 
 const careerBenefits = [
-    { title: 'Innovation First', icon: '💡', desc: 'Work on cutting-edge proprietary technologies.' },
-    { title: 'Growth & Learning', icon: '📚', desc: 'Continuous learning opportunities and workshops.' },
-    { title: 'Health & Wellness', icon: '🧘', desc: 'Comprehensive health coverage for you and family.' },
-    { title: 'Global Exposure', icon: '🌍', desc: 'Collaborate with international clients and teams.' }
+    { title: 'Innovation First', icon: 'innovation', desc: 'Work on cutting-edge proprietary technologies.' },
+    { title: 'Growth & Learning', icon: 'growth', desc: 'Continuous learning opportunities and workshops.' },
+    { title: 'Health & Wellness', icon: 'health', desc: 'Comprehensive health coverage for you and family.' },
+    { title: 'Global Exposure', icon: 'global', desc: 'Collaborate with international clients and teams.' }
 ]
 
 const jobs = [
@@ -86,7 +86,9 @@ export default function Careers() {
                                 transition={{ delay: i * 0.1 }}
                                 className="p-6 rounded-2xl bg-gray-50 border border-gray-100 text-center hover:shadow-lg transition-shadow"
                             >
-                                <div className="text-4xl mb-4">{benefit.icon}</div>
+                                <div className="flex justify-center text-blue-600 mb-6">
+                                    <Icon name={benefit.icon} className="w-12 h-12" />
+                                </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
                                 <p className="text-gray-600 text-sm">{benefit.desc}</p>
                             </motion.div>

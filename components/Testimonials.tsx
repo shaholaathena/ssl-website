@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+import Icon from './Icon'
 
 const testimonials = [
   {
@@ -10,21 +11,21 @@ const testimonials = [
     name: 'John Smith',
     role: 'CEO, TechCorp',
     content: 'SSL Wireless has transformed our payment infrastructure. Their innovative solutions and exceptional support have been instrumental in our growth. Highly recommended!',
-    avatar: '👤',
+    avatar: 'user',
   },
   {
     id: 2,
     name: 'Sarah Johnson',
     role: 'CTO, FinanceHub',
     content: 'Working with SSL Wireless has been a game-changer. Their expertise in digital solutions and commitment to excellence is unmatched. Truly a trusted partner.',
-    avatar: '👤',
+    avatar: 'user',
   },
   {
     id: 3,
     name: 'Michael Chen',
     role: 'Founder, StartupXYZ',
     content: 'The team at SSL Wireless understands our vision and delivers beyond expectations. Their products are robust, scalable, and perfectly aligned with our needs.',
-    avatar: '👤',
+    avatar: 'user',
   },
 ]
 
@@ -86,14 +87,13 @@ export default function Testimonials() {
                   duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`absolute inset-0 ${
-                  index === currentIndex ? 'relative' : 'absolute pointer-events-none'
-                }`}
+                className={`absolute inset-0 ${index === currentIndex ? 'relative' : 'absolute pointer-events-none'
+                  }`}
               >
                 <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100">
                   <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center text-2xl flex-shrink-0">
-                      {testimonial.avatar}
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center text-white flex-shrink-0">
+                      <Icon name={testimonial.avatar} className="w-8 h-8" />
                     </div>
                     <div>
                       <h4 className="text-xl font-semibold text-gray-900">{testimonial.name}</h4>
@@ -113,11 +113,10 @@ export default function Testimonials() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
                     ? 'bg-blue-600 w-8'
                     : 'bg-gray-300 hover:bg-gray-400'
-                }`}
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

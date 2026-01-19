@@ -6,24 +6,15 @@ import Footer from '@/components/Footer'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
+import Icon from '@/components/Icon'
 
 const services = [
-    {
-        title: 'SSLCOMMERZ',
-        subtitle: 'Payment Gateway & Merchant Solutions',
-        description: "Bangladesh's largest PSO-licensed payment gateway, enabling seamless, secure multi-channel digital payments for startups, SMEs, enterprises, and government.",
-        features: ['Online Payment', 'PSO Licensed', 'PCI DSS Certified', 'Multi-channel'],
-        icon: '💳',
-        image: '/images/sslcommerz.png',
-        gradient: 'from-blue-600 to-indigo-600',
-        bgGradient: 'from-blue-50 to-indigo-50'
-    },
     {
         title: 'Messaging & VAS Services',
         subtitle: 'High-Volume Communication Platform',
         description: 'High-volume SMS, alerts, and value-added services that help brands, banks, and enterprises reach and engage millions of customers in real time.',
-        features: ['Bulk SMS', 'Real-time Alerts', 'API Integration', 'Analytics'],
-        icon: '💬',
+        features: ['Bulk SMS', 'Real-time Alerts', 'VAS Services', 'Multi-channel'],
+        icon: 'message',
         image: '/images/milestone-2018.jpg',
         gradient: 'from-purple-600 to-pink-600',
         bgGradient: 'from-purple-50 to-pink-50'
@@ -32,8 +23,8 @@ const services = [
         title: 'Voice & IVR Services',
         subtitle: 'Interactive Voice Response',
         description: 'Automated voice broadcast, IVR, and missed call services to engage customers, run campaigns, and capture leads at scale.',
-        features: ['Voice Broadcast', 'IVR Systems', 'Call Analytics', 'Lead Capture'],
-        icon: '📞',
+        features: ['Voice Broadcast', 'IVR Systems', 'Missed Call', 'Lead Capture'],
+        icon: 'phone',
         image: '/images/milestone-2023.jpg',
         gradient: 'from-green-600 to-emerald-600',
         bgGradient: 'from-green-50 to-emerald-50'
@@ -42,42 +33,114 @@ const services = [
         title: 'A2P SMS & Enterprise Messaging',
         subtitle: 'Application-to-Person Messaging',
         description: 'A2P SMS service for secure transactional, promotional, and notification messaging – enabling banks, enterprises, and brands to reach customers instantly and reliably across Bangladesh.',
-        features: ['Transactional SMS', 'Promotional', 'OTP Delivery', 'Secure'],
-        icon: '📨',
+        features: ['Transactional SMS', 'Promotional', 'OTP Delivery', 'Notifications'],
+        icon: 'mail',
         image: '/images/news-2.jpg',
         gradient: 'from-orange-600 to-red-600',
         bgGradient: 'from-orange-50 to-red-50'
     },
     {
-        title: 'Hercules',
-        subtitle: 'Distribution & Field Force Automation',
-        description: 'A complete supply chain and field automation platform that connects producers, distributors, and retailers in one real-time digital flow – from order to delivery to payment reconciliation.',
-        features: ['Supply Chain', 'Field Automation', 'Real-time Tracking', 'Analytics'],
-        icon: '🚛',
-        image: '/images/hercules.png',
-        gradient: 'from-amber-600 to-yellow-600',
-        bgGradient: 'from-amber-50 to-yellow-50'
-    },
-    {
         title: 'BFSI Digital',
         subtitle: 'Banking & Financial Solutions',
-        description: 'Comprehensive digital banking and financial software solutions designed to modernize operations, ensure security, and enhance customer experience in the financial sector.',
-        features: ['Digital Banking', 'Core Banking', 'Mobile Banking', 'Security'],
-        icon: '🏦',
+        description: 'Secure, compliant, and API-driven digital solutions for banks and financial institutions, modernizing payments, channels, onboarding, and operations.',
+        features: ['Digital Banking', 'API-driven', 'Compliance', 'Modernization'],
+        icon: 'bank',
         image: '/images/office-hero.jpg',
         gradient: 'from-cyan-600 to-blue-600',
         bgGradient: 'from-cyan-50 to-blue-50'
+    },
+    {
+        title: 'Enterprise Solutions',
+        subtitle: 'Tailor-made Enterprise Platforms',
+        description: 'Tailor-made enterprise platforms that digitize complex workflows, improve visibility, and unlock intelligent decision-making across large organizations.',
+        features: ['Workflow Automation', 'Analytics', 'Custom Built', 'Scalable'],
+        icon: 'building',
+        image: '/images/sslcommerz.png',
+        gradient: 'from-blue-600 to-indigo-600',
+        bgGradient: 'from-blue-50 to-indigo-50'
+    },
+    {
+        title: 'Application Development',
+        subtitle: 'Custom Web & Mobile Apps',
+        description: 'Custom-built web and mobile applications engineered for performance, security, and scale – designed around your business goals and user experience.',
+        features: ['Web Apps', 'Mobile Apps', 'Performance', 'Security'],
+        icon: 'code',
+        image: '/images/hercules.png',
+        gradient: 'from-violet-600 to-purple-600',
+        bgGradient: 'from-violet-50 to-purple-50'
+    },
+    {
+        title: 'Payment Services & Automation',
+        subtitle: 'End-to-End Digital Payments',
+        description: 'End-to-end digital payment services that simplify collection, reconciliation, and payout—reducing friction and accelerating cash flow.',
+        features: ['Collections', 'Reconciliation', 'Payouts', 'Automation'],
+        icon: 'creditcard',
+        image: '/images/sslcommerz.png',
+        gradient: 'from-emerald-600 to-teal-600',
+        bgGradient: 'from-emerald-50 to-teal-50'
+    },
+    {
+        title: 'IT Security & Cyber Defense',
+        subtitle: 'Comprehensive Security Solutions',
+        description: 'Comprehensive IT security solutions that protect your infrastructure, data, and digital channels with continuous monitoring and intelligent threat defense.',
+        features: ['Infrastructure Security', 'Monitoring', 'Threat Defense', 'Compliance'],
+        icon: 'shield',
+        image: '/images/office-hero.jpg',
+        gradient: 'from-red-600 to-rose-600',
+        bgGradient: 'from-red-50 to-rose-50'
+    },
+    {
+        title: 'Digital Health & Innovation Platforms',
+        subtitle: 'Healthcare Technology Solutions',
+        description: 'Modern digital platforms—such as Easy Health and other sector-focused solutions—connecting people, service providers, and ecosystems through accessible technology.',
+        features: ['Easy Health', 'Healthcare Tech', 'Ecosystem', 'Accessible'],
+        icon: 'health',
+        image: '/images/milestone-2018.jpg',
+        gradient: 'from-pink-600 to-fuchsia-600',
+        bgGradient: 'from-pink-50 to-fuchsia-50'
+    },
+    {
+        title: 'IPRS',
+        subtitle: 'International Recharge Service',
+        description: 'A secure international mobile top-up service that enables Bangladeshis living abroad to remotely recharge local prepaid numbers through authorized partners and trusted FinTech infrastructure.',
+        features: ['International Top-up', 'Secure', 'FinTech', 'Global Access'],
+        icon: 'globe',
+        image: '/images/news-2.jpg',
+        gradient: 'from-sky-600 to-blue-600',
+        bgGradient: 'from-sky-50 to-blue-50'
+    },
+    {
+        title: 'API & Integration Services',
+        subtitle: 'Secure API Solutions',
+        description: 'Secure API and system integration services that connect your existing platforms, automate workflows, and streamline real-time data exchange.',
+        features: ['API Development', 'Integration', 'Automation', 'Real-time'],
+        icon: 'link',
+        image: '/images/hercules.png',
+        gradient: 'from-amber-600 to-orange-600',
+        bgGradient: 'from-amber-50 to-orange-50'
+    },
+    {
+        title: 'Security Management',
+        subtitle: 'Workforce & Security App',
+        description: 'A smart workforce and security management app that digitizes guard operations, incident logging, and access oversight for large facilities.',
+        features: ['Guard Operations', 'Incident Logging', 'Access Control', 'Facility Management'],
+        icon: 'lock',
+        image: '/images/office-hero.jpg',
+        gradient: 'from-slate-600 to-gray-600',
+        bgGradient: 'from-slate-50 to-gray-50'
     }
 ]
 
 const industries = [
-    { name: 'Banking & Finance', icon: '🏦', count: '50+' },
-    { name: 'E-commerce', icon: '🛍️', count: '1000+' },
-    { name: 'Telecommunications', icon: '📡', count: '20+' },
-    { name: 'Government', icon: '🏛️', count: '30+' },
-    { name: 'Healthcare', icon: '🏥', count: '100+' },
-    { name: 'Education', icon: '🎓', count: '200+' }
+    { name: 'Banking & Finance', icon: 'bank', count: '50+' },
+    { name: 'E-commerce', icon: 'shopping_bag', count: '1000+' },
+    { name: 'Telecommunications', icon: 'signal', count: '20+' },
+    { name: 'Government', icon: 'city_hall', count: '30+' },
+    { name: 'Healthcare', icon: 'health', count: '100+' },
+    { name: 'Education', icon: 'school', count: '200+' }
 ]
+
+
 
 export default function Services() {
     useSmoothScroll()
@@ -99,7 +162,7 @@ export default function Services() {
             {/* Hero Section with Parallax - Matching Homepage Colors */}
             <section
                 ref={heroRef}
-                className="relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden bg-gradient-to-b from-pink-50/30 via-white to-white"
+                className="relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden bg-gradient-to-br from-[#f0f4ff] via-[#ffffff] to-[#faf5ff]"
             >
                 <motion.div
                     style={{ y: heroY, opacity: heroOpacity }}
@@ -116,19 +179,18 @@ export default function Services() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2D499A] opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-[#2D499A]"></span>
                             </span>
-                            <span className="text-sm font-semibold text-[#2D499A]">Empowering Digital Transformation</span>
+                            <span className="text-sm font-semibold text-[#2D499A]">Enterprise Digital Services</span>
                         </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-5xl md:text-6xl lg:text-7xl font-normal text-gray-800 mb-8 leading-tight"
+                            className="text-5xl md:text-7xl lg:text-8xl font-normal text-gray-900 mb-8 leading-tight tracking-tight"
                         >
-                            Empowering Industries & Communities through
-                            <br />
-                            <span className="font-serif italic text-6xl md:text-7xl lg:text-8xl">
-                                Digital Innovation
+                            Innovating the Future with <br />
+                            <span className="font-serif italic text-6xl md:text-8xl lg:text-8xl font-bold text-[#2D499A]">
+                                Digital Services
                             </span>
                         </motion.h1>
 
@@ -227,26 +289,12 @@ export default function Services() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-br from-[#2D499A]/60 to-[#1a1f3a]/60 group-hover:opacity-40 transition-opacity duration-500"></div>
 
-                                    {/* Icon Badge */}
+                                    {/* Icon Badge - Minimal Style */}
                                     <div className="absolute top-6 left-6">
-                                        <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center text-3xl shadow-xl group-hover:scale-110 transition-transform duration-300">
-                                            {service.icon}
+                                        <div className="w-16 h-16 backdrop-blur-sm bg-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 text-white">
+                                            <Icon name={service.icon} className="w-8 h-8" />
                                         </div>
                                     </div>
-
-                                    {/* Hover Overlay */}
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                                        className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center"
-                                    >
-                                        <button className="px-6 py-3 bg-white text-gray-900 rounded-full font-semibold flex items-center gap-2 shadow-xl hover:scale-105 transition-transform">
-                                            <span>Learn More</span>
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                            </svg>
-                                        </button>
-                                    </motion.div>
                                 </div>
 
                                 {/* Content Section */}
@@ -307,7 +355,9 @@ export default function Services() {
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-gray-100 cursor-pointer"
                             >
-                                <div className="text-5xl mb-4">{industry.icon}</div>
+                                <div className="flex justify-center text-[#2D499A] mb-6">
+                                    <Icon name={industry.icon} className="w-8 h-8" />
+                                </div>
                                 <h3 className="font-bold text-gray-900 mb-2 text-sm">{industry.name}</h3>
                                 <div className="text-2xl font-bold text-[#2D499A]">
                                     {industry.count}
@@ -339,22 +389,22 @@ export default function Services() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
                             {
-                                icon: '🏆',
+                                icon: 'trophy',
                                 title: 'Industry Leader',
                                 description: "Bangladesh's pioneering technology company with proven track record"
                             },
                             {
-                                icon: '🔒',
+                                icon: 'shield',
                                 title: 'Enterprise Security',
                                 description: 'PCI DSS certified with bank-grade security infrastructure'
                             },
                             {
-                                icon: '⚡',
+                                icon: 'support',
                                 title: '24/7 Support',
                                 description: 'Round-the-clock technical support and monitoring'
                             },
                             {
-                                icon: '🚀',
+                                icon: 'rocket',
                                 title: 'Scalable Solutions',
                                 description: 'Built to grow with your business needs'
                             }
@@ -367,7 +417,9 @@ export default function Services() {
                                 transition={{ delay: index * 0.1 }}
                                 className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all hover:-translate-y-2"
                             >
-                                <div className="text-5xl mb-4">{benefit.icon}</div>
+                                <div className="text-white mb-6">
+                                    <Icon name={benefit.icon} className="w-8 h-8" />
+                                </div>
                                 <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
                                 <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
                             </motion.div>
