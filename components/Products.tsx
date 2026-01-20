@@ -26,7 +26,7 @@ export default function Products() {
     },
     {
       name: 'Messaging',
-      desc: 'Critical notification & alert infrastructure',
+      desc: 'Critical communication and real-time alert infrastructure',
       type: 'Enterprise Telecom',
       icon: (
         <svg className="w-8 h-8 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
