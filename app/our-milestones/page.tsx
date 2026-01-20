@@ -96,21 +96,34 @@ export default function OurMilestones() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#2D499A] text-white overflow-hidden">
-                <div className="container mx-auto px-6 relative z-10">
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-4xl mx-auto text-center"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal mb-8">
-                            Our <span className="font-serif italic text-blue-200">Milestones</span>
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Operational History
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Chronicle of <br />
+                            <span className="text-blue-900">Excellence.</span>
                         </h1>
-                        <h2 className="text-3xl md:text-4xl font-normal mb-6">Hi, we’re SSL Wireless</h2>
-                        <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-                            An innovative collective of like-minded folks making useful and enduring technology products.
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-6">
+                            An innovative collective of like-minded experts making useful and enduring technology products since 1999.
                         </p>
                     </motion.div>
                 </div>

@@ -108,105 +108,46 @@ export default function ProductsPage() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero Section */}
-            <section
-                ref={heroRef}
-                className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white"
-            >
-                {/* Animated Background Elements */}
-                <div className="absolute inset-0 overflow-hidden">
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-24 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <motion.div
-                        className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-3xl"
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3]
-                        }}
-                        transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
-                    <motion.div
-                        className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-3xl"
-                        animate={{
-                            scale: [1.2, 1, 1.2],
-                            opacity: [0.3, 0.5, 0.3]
-                        }}
-                        transition={{
-                            duration: 10,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
-                </div>
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Technical Portfolio
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
 
-                <motion.div
-                    style={{ opacity: heroOpacity, scale: heroScale }}
-                    className="container mx-auto px-6 relative z-10"
-                >
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8"
-                        >
-                            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                            <span className="text-sm font-medium">Our Digital Solutions</span>
-                        </motion.div>
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Proprietary <br />
+                            <span className="text-blue-900">Platforms & Products.</span>
+                        </h1>
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-12">
+                            Discover our suite of enterprise-grade digital products designed to streamline operations, enhance customer experiences, and drive measurable business impact.
+                        </p>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
-                        >
-                            Innovative Products <br />
-                            <span className="font-serif italic text-blue-400">Transforming Industries</span>
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto"
-                        >
-                            Discover our suite of enterprise-grade digital products designed to streamline operations,
-                            enhance customer experiences, and drive measurable business impact.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="flex flex-wrap justify-center gap-4"
-                        >
-                            <button className="px-8 py-4 bg-white text-blue-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all hover:scale-105 shadow-xl">
+                        <motion.div className="flex flex-wrap gap-4">
+                            <button className="px-12 py-5 bg-blue-900 text-white font-bold rounded-xl shadow-xl shadow-blue-900/20 hover:bg-blue-800 transition-all">
                                 Explore Products
                             </button>
-                            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all border border-white/20">
+                            <button className="px-12 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl hover:bg-slate-50 transition-all">
                                 Contact Sales
                             </button>
                         </motion.div>
-                    </div>
-                </motion.div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
-                    >
-                        <div className="w-1 h-2 bg-white rounded-full"></div>
                     </motion.div>
-                </motion.div>
+                </div>
             </section>
 
             {/* Category Filter */}
@@ -218,8 +159,8 @@ export default function ProductsPage() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all ${selectedCategory === category
-                                        ? 'bg-blue-600 text-white shadow-lg scale-105'
-                                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                                    ? 'bg-blue-600 text-white shadow-lg scale-105'
+                                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                                     }`}
                             >
                                 {category}

@@ -34,28 +34,34 @@ export default function Contact() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#1a1f3a] text-white">
-                <div className="absolute inset-0">
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-                </div>
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
 
-                <div className="container mx-auto px-6 relative z-10 text-center">
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="max-w-3xl mx-auto"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <span className="inline-block px-4 py-2 border border-white/20 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
-                            Let&apos;s Talk
-                        </span>
-                        <h1 className="text-5xl md:text-7xl font-normal mb-8">
-                            Get in <span className="font-serif italic text-blue-400">Touch</span>
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Technical Engagement
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Start the <br />
+                            <span className="text-blue-900">Conversation.</span>
                         </h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
-                            Have a project in mind or want to learn more about our services?
-                            We&apos;re here to help you navigate your digital transformation journey.
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance">
+                            Whether you're looking for enterprise-scale integration, technical support, or strategic partnership—our experts are ready to architect your next digital milestone.
                         </p>
                     </motion.div>
                 </div>

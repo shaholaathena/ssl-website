@@ -92,36 +92,36 @@ export default function NewsAndEvents() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#2D499A] text-white overflow-hidden">
-                <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:w-3/5"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <span className="text-blue-200 uppercase tracking-[0.2em] font-bold mb-6 block">News and Events</span>
-                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight mb-8">
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Media Hub
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
                             News Updates & <br />
-                            <span className="font-serif italic text-blue-200">Event Highlights.</span>
+                            <span className="text-blue-900">Event Highlights.</span>
                         </h1>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:w-2/5"
-                    >
-                        <p className="text-xl md:text-2xl text-blue-100 leading-relaxed font-light border-l border-blue-400 pl-8">
-                            Stay updated with the latest news and event highlights. From breaking news to upcoming events, we bring you the most important updates and happenings.
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-6">
+                            Stay updated with the latest news, institutional updates, and event highlights from the heart of Bangladesh's digital ecosystem.
                         </p>
                     </motion.div>
-                </div>
-                {/* Abstract Background Design */}
-                <div className="absolute inset-0 z-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white to-transparent" />
-                    <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-400 rounded-full blur-[100px]" />
                 </div>
             </section>
 

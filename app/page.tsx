@@ -3,14 +3,13 @@
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import Clients from '@/components/Clients'
-import Approach from '@/components/Approach'
-import Services from '@/components/Services'
+import TrustScale from '@/components/TrustScale'
 import Products from '@/components/Products'
-import Testimonials from '@/components/Testimonials'
-import Footer from '@/components/Footer'
+import BeyondPayments from '@/components/BeyondPayments'
+import EcosystemDiagram from '@/components/EcosystemDiagram'
+import WhoWeServe from '@/components/WhoWeServe'
 import HomeAbout from '@/components/HomeAbout'
-import HomeTagline from '@/components/HomeTagline'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   useSmoothScroll()
@@ -19,13 +18,12 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Header />
       <Hero />
-      <HomeAbout />
-      <Clients />
-      <Approach />
-      <Services />
+      <TrustScale />
       <Products />
-      <Testimonials />
-      <HomeTagline />
+      <BeyondPayments />
+      <EcosystemDiagram />
+      <WhoWeServe />
+      <HomeAbout />
       <Footer />
     </main>
   )

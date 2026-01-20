@@ -78,193 +78,167 @@ const workflow = [
     }
 ]
 
-export default function OurCompany() {
+export default function GovernancePage() {
     useSmoothScroll()
-    const sectionRef = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ['start end', 'end start']
-    })
 
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+    const governancePrinciples = [
+        {
+            title: "Transparency",
+            description: "Maintaining clear, open communication with stakeholders and regulators regarding operational health and strategic direction.",
+            icon: "shield"
+        },
+        {
+            title: "Accountability",
+            description: "Rigorous internal auditing and performance metrics to ensure adherence to institutional standards and national regulations.",
+            icon: "trophy"
+        },
+        {
+            title: "Strategic Stability",
+            description: "Long-term planning that prioritizes infrastructure resilience over short-term market fluctuations.",
+            icon: "innovation"
+        }
+    ]
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gray-900">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/company-hero-new.jpg"
-                        alt="SSL Wireless Office"
-                        fill
-                        className="object-cover opacity-60"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#2D499A] via-[#2D499A]/80 to-transparent" />
-                </div>
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
 
-                <div className="container mx-auto px-6 relative z-10">
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-5xl text-left"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-200 text-sm font-bold tracking-widest uppercase mb-6">
-                            Since 1999
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Leadership Hub
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
                         </div>
-                        <h1 className="text-3xl md:text-6xl font-normal text-white mb-8 leading-tight">
-                            SSL Wireless is recognized for its <span className="font-serif italic text-blue-200">rapid development</span> and efficient project execution.
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Governance & <br />
+                            <span className="text-blue-900">Leadership.</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl">
-                            By working with industry-standard technologies, we empower organizations through innovation and excellence.
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-12">
+                            Guided by veterans of the digital landscape, our leadership ensures strategic stability and innovative growth across all regulated sectors.
                         </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Stats Section */}
-            <section className="py-16 border-y border-gray-100 bg-white/30 backdrop-blur-sm">
-                <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* 2. Institutional Leadership Grid */}
+            <section className="py-40 bg-white">
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+                        <div className="max-w-2xl">
+                            <span className="inline-block text-blue-900 font-bold tracking-[x0.4em] uppercase text-[10px] mb-6">Executive Board</span>
+                            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-none">
+                                Strategic <br />
+                                <span className="text-blue-900">Management.</span>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { label: 'Enterprise Services', value: '90+' },
-                            { label: 'Banks and Institutions', value: '52+' },
-                            { label: 'Corporate Clients', value: '3500+' },
-                            { label: 'Ecommerce Clients', value: '10000+' }
-                        ].map((stat, i) => (
+                            { role: "Executive Management", area: "Strategic Planning" },
+                            { role: "Technical Operations", area: "Infrastructure Scale" },
+                            { role: "Regulatory Affairs", area: "Compliance Hub" },
+                            { role: "Product Strategy", area: "Innovation Framework" },
+                            { role: "Corporate Development", area: "Long-term Impact" },
+                            { role: "Global Solutions", area: "Ecosystem Growth" },
+                        ].map((leader, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="text-center"
+                                className="group relative bg-slate-50 border border-slate-100 rounded-[2rem] p-10 hover:bg-white hover:shadow-2xl transition-all duration-500 overflow-hidden"
                             >
-                                <div className="text-3xl md:text-5xl font-bold text-[#2D499A] mb-2 font-serif">{stat.value}</div>
-                                <div className="text-sm font-medium text-gray-500 uppercase tracking-widest leading-tight px-4">{stat.label}</div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Mission Vision Values */}
-            <section className="relative py-24 text-gray-900 overflow-hidden">
-                <div className="absolute inset-0 z-0 opacity-60">
-                    <Image
-                        src="/images/mission-vision-bg-v2.png"
-                        alt="Background"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {values.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.2 }}
-                                className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-[2.5rem] hover:bg-white/20 transition-all duration-500 group shadow-lg hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="mb-8 p-5 bg-white/20 backdrop-blur-md rounded-2xl inline-block group-hover:scale-110 group-hover:bg-white/40 transition-all duration-500 text-[#2D499A] border border-white/30 shadow-sm">
-                                    <Icon name={item.icon} className="w-10 h-10" />
-                                </div>
-                                <h3 className="text-2xl md:text-3xl font-normal mb-4 font-serif italic text-gray-900 relative z-10">{item.title}</h3>
-                                <p className="text-gray-600 leading-relaxed text-base md:text-lg relative z-10 font-medium">{item.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Milestones Sections */}
-            <section className="py-24 overflow-hidden">
-                <div className="container mx-auto px-6">
-                    {milestones.map((milestone, index) => (
-                        <div key={index} className="mb-32 last:mb-0">
-                            <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                                <motion.div
-                                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8 }}
-                                    className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}
-                                >
-                                    <div className="relative h-[400px] md:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl">
-                                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent z-10" />
-                                        <Image
-                                            src={milestone.image}
-                                            alt={milestone.title}
-                                            fill
-                                            className="object-cover"
-                                        />
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-900/5 blur-3xl group-hover:bg-blue-900/10 transition-all"></div>
+                                <div className="relative z-10">
+                                    <div className="w-12 h-1 bg-blue-900 mb-8"></div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{leader.role}</h3>
+                                    <div className="text-[10px] font-bold text-blue-900 uppercase tracking-widest mb-6">
+                                        {leader.area}
                                     </div>
-                                    {/* <div className={`absolute -bottom-6 ${index % 2 === 0 ? '-right-6' : '-left-6'} bg-white p-6 rounded-2xl shadow-xl z-20`}>
-                                        <div className="text-[#2D499A]">
-                                            <Icon name={milestone.icon} className="w-10 h-10" />
-                                        </div>
-                                    </div> */}
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8 }}
-                                    className={index % 2 === 1 ? 'lg:order-1' : ''}
-                                >
-                                    <h2 className="text-2xl md:text-4xl font-normal text-gray-900 mb-8 leading-tight">
-                                        {milestone.title}
-                                    </h2>
-                                    <p className="text-lg text-gray-600 leading-relaxed">
-                                        {milestone.description}
+                                    <p className="text-slate-500 text-sm font-light leading-relaxed mb-8">
+                                        Overseeing the critical intersection of high-scale engineering and regulatory alignment to deliver national-level impact.
                                     </p>
-                                </motion.div>
-                            </div>
-                        </div>
-                    ))}
+                                    <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                        Verified Role
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            {/* How We Work Section */}
-            <section className="py-24 overflow-hidden">
-                <div className="container mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-normal text-gray-900 mb-6">
-                            How we <span className="font-serif italic text-blue-900">work</span>
-                        </h2>
-                    </motion.div>
+            {/* 3. Governance Framework Section */}
+            <section className="py-40 bg-slate-900 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(30,58,138,0.2),transparent)]"></div>
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-24 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-blue-400 font-bold tracking-[0.4em] uppercase text-[10px] mb-8 block">Control Systems</span>
+                            <h2 className="text-5xl font-bold text-white mb-10 tracking-tight leading-tight">
+                                Our Governance <br />
+                                <span className="text-blue-400">Framework.</span>
+                            </h2>
+                            <div className="space-y-12">
+                                {governancePrinciples.map((principle, i) => (
+                                    <div key={i} className="flex gap-8 group">
+                                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-400 group-hover:text-blue-900 transition-all">
+                                            <Icon name={principle.icon} className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold text-white mb-2">{principle.title}</h4>
+                                            <p className="text-slate-400 font-light leading-relaxed">{principle.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {workflow.map((step, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-shadow"
-                            >
-                                <div className="mb-8 text-[#2D499A]">
-                                    <Icon name={step.icon} className="w-12 h-12" />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="aspect-[4/5] bg-slate-800 rounded-[3rem] overflow-hidden border border-white/10 relative group shadow-2xl">
+                                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
+                                <div className="absolute bottom-12 left-12 right-12">
+                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">Institutional Report</div>
+                                    <h3 className="text-3xl font-bold text-white mb-6">Annual Governance & <br />Compliance Audit 2025</h3>
+                                    <a href="/compliance" className="inline-flex items-center gap-3 text-white font-bold group">
+                                        View Compliance Hub
+                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-all">
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </div>
+                                    </a>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                                <p className="text-gray-600 leading-relaxed font-medium">{step.description}</p>
-                            </motion.div>
-                        ))}
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

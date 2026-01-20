@@ -159,91 +159,56 @@ export default function Services() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero Section with Parallax - Matching Homepage Colors */}
-            <section
-                ref={heroRef}
-                className="relative pt-32 pb-32 lg:pt-48 lg:pb-40 overflow-hidden bg-gradient-to-br from-[#f0f4ff] via-[#ffffff] to-[#faf5ff]"
-            >
-                <motion.div
-                    style={{ y: heroY, opacity: heroOpacity }}
-                    className="container mx-auto px-6 relative z-10"
-                >
-                    <div className="max-w-5xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-5 py-2 bg-[#2D499A]/10 rounded-full border border-[#2D499A]/20 mb-8"
-                        >
-                            <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2D499A] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#2D499A]"></span>
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Technical Delivery
                             </span>
-                            <span className="text-sm font-semibold text-[#2D499A]">Enterprise Digital Services</span>
-                        </motion.div>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-5xl md:text-7xl lg:text-8xl font-normal text-gray-900 mb-8 leading-tight tracking-tight"
-                        >
-                            Innovating the Future with <br />
-                            <span className="font-serif italic text-6xl md:text-8xl lg:text-8xl font-bold text-[#2D499A]">
-                                Digital Services
-                            </span>
-                        </motion.h1>
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Innovating <br />
+                            <span className="text-blue-900">Digital Services.</span>
+                        </h1>
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-20">
+                            Trusted by banks, enterprises, and government institutions for over two decades. We build the secure, scalable, and intelligent digital solutions that power Bangladesh's digital economy.
+                        </p>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto"
-                        >
-                            Trusted by banks, enterprises, government, and startups for over two decades.
-                            We build secure, scalable, and intelligent digital solutions that transform businesses.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="flex flex-wrap justify-center gap-4"
-                        >
-                            <button className="group px-8 py-4 bg-[#2D499A] text-white rounded-full font-bold text-lg hover:bg-[#1e3270] transition-all hover:scale-105 shadow-xl flex items-center gap-2">
-                                <span>Explore Services</span>
-                                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </button>
-                            <button className="px-8 py-4 bg-white text-gray-800 rounded-full font-bold text-lg hover:bg-gray-50 transition-all border-2 border-gray-200">
-                                Talk to Expert
-                            </button>
-                        </motion.div>
-
-                        {/* Stats */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
-                        >
+                        {/* Integrated Stats Section */}
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 border-t border-slate-200 pt-16 max-w-5xl">
                             {[
                                 { value: '20+', label: 'Years Experience' },
                                 { value: '300+', label: 'Team Members' },
                                 { value: '10K+', label: 'Active Clients' },
                                 { value: '99.9%', label: 'Uptime SLA' }
                             ].map((stat, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold text-[#2D499A] mb-2">
+                                <div key={index}>
+                                    <div className="text-4xl font-bold text-slate-900 mb-2">
                                         {stat.value}
                                     </div>
-                                    <div className="text-sm text-gray-600">{stat.label}</div>
+                                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight">
+                                        {stat.label}
+                                    </div>
                                 </div>
                             ))}
-                        </motion.div>
-                    </div>
-                </motion.div>
+                        </div>
+                    </motion.div>
+                </div>
             </section>
 
             {/* Services Grid - Normal Grid Layout */}

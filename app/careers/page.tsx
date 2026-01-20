@@ -41,32 +41,44 @@ export default function Careers() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#1a1f3a] text-white">
-                <div className="absolute inset-0 opacity-20 bg-[url('/images/pattern.png')] bg-cover bg-center" />
-                <div className="container mx-auto px-6 relative z-10 text-center">
-                    <motion.h1
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-normal mb-8"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Shape the <span className="font-serif italic text-blue-400">Future</span> with Us
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-300 max-w-2xl mx-auto mb-10"
-                    >
-                        Join a team of passionate innovators solving the world's most complex digital challenges.
-                    </motion.p>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-8 py-4 bg-blue-600 rounded-full text-white font-medium hover:bg-blue-500 transition-colors"
-                    >
-                        View Open Positions
-                    </motion.button>
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Human Capital
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Shape the <br />
+                            <span className="text-blue-900">Future with Us.</span>
+                        </h1>
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-12">
+                            Join a team of passionate innovators, engineers, and visionaries solving the world's most complex digital challenges at national-scale.
+                        </p>
+
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-12 py-5 bg-blue-900 text-white font-bold rounded-xl shadow-xl shadow-blue-900/20 hover:bg-blue-800 transition-all"
+                        >
+                            View Open Positions
+                        </motion.button>
+                    </motion.div>
                 </div>
             </section>
 

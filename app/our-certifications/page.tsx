@@ -50,37 +50,37 @@ export default function OurCertifications() {
         <main className="min-h-screen bg-white">
             <Header />
 
-            {/* Hero */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#2D499A] text-white">
-                <div className="container mx-auto px-6 relative z-10 text-center">
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-blue-200 uppercase tracking-widest font-semibold mb-4"
-                    >
-                        About Us
-                    </motion.p>
-                    <motion.h1
+            {/* 1. Immersive Hero - Standardized Luxury Aesthetic */}
+            <section className="relative pt-56 pb-32 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-900/[0.04] to-transparent blur-[120px]"></div>
+
+                {/* Ambient Nodes */}
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-900/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-blue-900/40 rounded-full animate-pulse [animation-delay:1s]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-normal mb-8"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Our <span className="font-serif italic text-blue-200">Certifications</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed"
-                    >
-                        From a team of passionate builders working side-by-side with our partners in delivering compliant and certified services to our clients.
-                    </motion.p>
+                        <div className="flex items-center gap-3 mb-10">
+                            <span className="text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] bg-white border border-slate-200 px-5 py-2 rounded-full shadow-sm">
+                                Technical Compliance
+                            </span>
+                            <div className="h-px w-20 bg-blue-900/10"></div>
+                        </div>
+
+                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Our Authoritative <br />
+                            <span className="text-blue-900">Certifications.</span>
+                        </h1>
+                        <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-6">
+                            Maintaining the highest globally recognized ratings for data security and process maturity. We are architected for institutional trust and regulatory excellence.
+                        </p>
+                    </motion.div>
                 </div>
-                {/* Abstract decorative elements */}
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-t from-white/5 to-transparent pointer-events-none" />
             </section>
 
             {/* Grid */}
@@ -104,7 +104,7 @@ export default function OurCertifications() {
                                 <div className="text-xs font-bold tracking-[0.2em] text-[#2D499A] uppercase mb-6">{cert.category}</div>
                                 <h3 className="text-3xl font-normal text-gray-900 mb-6 font-serif italic">{cert.title}</h3>
                                 <p className="text-gray-600 leading-relaxed text-lg mb-8">{cert.description}</p>
-                               
+
                             </motion.div>
                         ))}
                     </div>

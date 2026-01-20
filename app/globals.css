@@ -3,44 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --font-mona-sans: 'Mona Sans', system-ui, -apple-system, sans-serif;
-  --font-playfair: 'Playfair Display', serif;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-head: #0f172a;
+  --text-body: #334155;
+  --accent: #1e3a8a;
+  /* Deep Institutional Blue */
 }
 
 body {
-  font-family: var(--font-mona-sans);
+  font-family: var(--font-inter);
+  background-color: var(--bg-primary);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  background-color: #F2F1F6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-head);
+  letter-spacing: -0.015em;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Institutional Card - Clean, bordered, no heavy shadows */
+  .inst-card {
+    @apply bg-white border border-slate-200 rounded-sm p-8 transition-colors duration-200;
+  }
+
+  .inst-card:hover {
+    @apply border-blue-900/30 bg-slate-50;
+  }
+
+  /* Grid Background for technical feel */
+  .bg-grid-slate {
+    background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+      linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }

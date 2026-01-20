@@ -1,303 +1,170 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Header() {
-  const [isAboutOpen, setIsAboutOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  // Top-Level Navigation IA
+  const navItems = [
+    { name: 'Platforms', href: '/platforms' },
+    { name: 'Solutions', href: '/solutions' },
+    { name: 'Ecosystem', href: '/ecosystem' },
+    { name: 'Governance & Compliance', href: '/compliance' },
+    {
+      name: 'About',
+      href: '/about-us',
+      children: [
+        { name: 'Company Overview', href: '/about-us' },
+        { name: 'Leadership & Governance', href: '/our-company' },
+        { name: 'History & Milestones', href: '/our-milestones' },
+        { name: 'Careers', href: '/careers' },
+      ]
+    },
+    { name: 'Contact', href: '/contact' },
+  ]
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
     }
-  }, [isMobileMenuOpen])
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${isScrolled
+        ? 'bg-white/80 backdrop-blur-md border-slate-200 py-3 shadow-sm'
+        : 'bg-white border-transparent py-5'
+        }`}
     >
-      <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex items-center justify-between">
+
         {/* Logo */}
-        <div className="flex items-center">
-          <svg width="259" height="60" viewBox="0 0 259 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-auto">
-            <g clipPath="url(#clip0_202_719)">
-              <mask id="mask0_202_719" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="258" height="60">
-                <path d="M257.835 0H0V59.4484H257.835V0Z" fill="white" />
-              </mask>
-              <g mask="url(#mask0_202_719)">
-                <path d="M33.3976 2.51577C28.1234 -0.919708 19.6072 0.502869 13.0072 6.29964C5.46856 12.9287 3.32986 22.7513 8.16857 28.2868C13.0072 33.8223 23.0621 32.9029 30.6105 26.2739C37.5008 20.2255 39.8621 11.5061 36.5331 5.83513V5.73835C40.7911 12.4545 37.9653 23.0513 29.6524 30.3577C20.7105 38.2158 8.7976 39.29 3.04921 32.7481C-2.69918 26.2061 -0.105626 14.5352 8.85566 6.66738C16.8782 -0.377773 27.2427 -1.97455 33.4943 2.50609L33.3976 2.51577Z" fill="#2D499A" />
-                <path d="M8.46782 28.6254C16.6259 20.748 27.8227 18.948 33.8807 24.7545C40.1807 30.7738 38.6323 42.6383 30.4162 51.2609C23.042 59.0029 12.8033 61.49 6.22266 57.5803H6.30008C11.8646 60.4835 20.2259 58.3738 26.2936 52.0061C33.2323 44.7383 34.5291 34.7319 29.1969 29.6512C24.784 25.4416 16.8001 26.119 10.8098 30.4158C9.95892 29.9142 9.17796 29.3024 8.48717 28.5964" fill="#EC3336" />
-                <path d="M5.83807 34.9753C0.544529 41.4205 -0.713537 49.5786 2.8284 54.5819V54.6689C-1.18773 49.4334 -0.539343 41.0334 4.13485 33.7656L5.83807 34.9753Z" fill="#EC3336" />
-                <path d="M52.5698 33.8616L57.6601 33.5326C57.7078 34.2269 57.9418 34.8955 58.3375 35.4681C58.6234 35.8183 58.9908 36.0931 59.4075 36.2686C59.8242 36.444 60.2775 36.5148 60.7278 36.4745C61.3605 36.5202 61.9877 36.3306 62.4891 35.9423C62.6795 35.7941 62.8339 35.6049 62.9412 35.3887C63.0484 35.1726 63.1056 34.9351 63.1085 34.6939C63.1046 34.4627 63.0498 34.2353 62.9477 34.0278C62.8457 33.8203 62.6989 33.638 62.5182 33.4939C61.6859 32.9771 60.7516 32.6469 59.7795 32.5261C57.9483 32.2349 56.215 31.5044 54.7278 30.3971C54.2419 29.9894 53.854 29.4776 53.5926 28.8997C53.3313 28.3218 53.2033 27.6925 53.2182 27.0584C53.2189 26.1595 53.4849 25.2809 53.9827 24.5326C54.5586 23.6911 55.3698 23.0381 56.3149 22.6552C57.6746 22.1465 59.1226 21.9161 60.573 21.9777C62.3473 21.8607 64.1146 22.2932 65.6343 23.2164C66.2362 23.676 66.7327 24.2594 67.09 24.9271C67.4473 25.595 67.6571 26.3316 67.7053 27.0874L62.6633 27.3777C62.6497 27.055 62.5694 26.7385 62.4275 26.4482C62.2856 26.158 62.0852 25.9003 61.8389 25.6912C61.5925 25.4821 61.3057 25.3263 60.9962 25.2335C60.6867 25.1407 60.3615 25.1129 60.0408 25.1519C59.5412 25.1182 59.0453 25.2584 58.6375 25.5487C58.4885 25.6619 58.368 25.8084 58.2857 25.9764C58.2033 26.1444 58.1614 26.3294 58.1633 26.5164C58.1688 26.6626 58.2075 26.8055 58.2762 26.9346C58.3449 27.0636 58.4419 27.1755 58.5601 27.2616C59.0996 27.6098 59.7123 27.8284 60.3504 27.9003C62.0787 28.2114 63.7645 28.7245 65.373 29.4294C66.2786 29.8539 67.0465 30.5246 67.5891 31.3648C68.049 32.1405 68.2867 33.0277 68.2762 33.9294C68.2703 35.0261 67.933 36.0955 67.3085 36.9971C66.6845 37.9499 65.7873 38.6921 64.7343 39.1261C63.4095 39.6552 61.9889 39.9024 60.5633 39.8519C57.6214 39.8519 55.5827 39.2906 54.4472 38.1681C53.3023 37.0062 52.615 35.4702 52.5117 33.8423" fill="#2D499A" />
-                <path d="M70.039 33.8529L75.1292 33.5336C75.1741 34.227 75.4047 34.8956 75.797 35.469C76.0787 35.8196 76.4398 36.098 76.8503 36.2814C77.2609 36.4648 77.7093 36.548 78.1583 36.5239C78.7947 36.5637 79.424 36.3712 79.9292 35.9819C80.1189 35.8352 80.2729 35.6477 80.3802 35.4332C80.4874 35.2188 80.545 34.983 80.5487 34.7432C80.5429 34.5111 80.4872 34.2828 80.3854 34.074C80.2835 33.8653 80.1378 33.6809 79.9583 33.5336C79.1229 33.0235 78.19 32.6938 77.2196 32.5658C75.3957 32.2568 73.6729 31.5133 72.1969 30.3981C71.7106 29.9909 71.3222 29.4792 71.0608 28.9012C70.7994 28.3231 70.6718 27.6936 70.6874 27.0594C70.6858 26.1618 70.9557 25.2847 71.4615 24.5432C72.0298 23.7009 72.8393 23.0498 73.784 22.6755C75.1429 22.1631 76.5911 21.9294 78.0422 21.9884C79.8162 21.8752 81.5823 22.3075 83.1035 23.2271C83.7105 23.6928 84.2098 24.2841 84.5672 24.9605C84.9247 25.637 85.1318 26.3826 85.1745 27.1465L80.1325 27.4465C80.1187 27.1233 80.0384 26.8066 79.8966 26.5159C79.7548 26.2252 79.5547 25.9669 79.3085 25.7571C79.0624 25.5473 78.7757 25.3905 78.4662 25.2965C78.1567 25.2026 77.8311 25.1734 77.5098 25.211C77.0105 25.1788 76.5152 25.3189 76.1067 25.6077C75.9577 25.721 75.8372 25.8674 75.7548 26.0354C75.6725 26.2035 75.6306 26.3884 75.6325 26.5755C75.6354 26.7225 75.6718 26.8669 75.7389 26.9976C75.8059 27.1285 75.9019 27.2422 76.0196 27.3303C76.5644 27.666 77.1749 27.8806 77.8099 27.9594C79.5415 28.2744 81.2304 28.7908 82.8421 29.4981C83.7508 29.9141 84.5178 30.5869 85.0486 31.4336C85.5168 32.2026 85.7583 33.0882 85.7453 33.9884C85.7492 35.0824 85.4294 36.1532 84.8261 37.0658C84.195 38.0124 83.2999 38.7527 82.2518 39.1948C80.9257 39.7194 79.5062 39.9663 78.0809 39.9207C75.1777 39.9207 73.097 39.3497 71.9648 38.2271C70.8132 37.0698 70.1247 35.5312 70.0293 33.9013" fill="#2D499A" />
-                <path d="M88.4355 22.2676H93.7872V35.3127H102.139V39.5708H88.4355V22.2676Z" fill="#2D499A" />
-                <path d="M110.844 22.2577H115.924L117.753 31.9545L120.434 22.2577H125.495L128.176 31.9351L130.015 22.248H135.066L131.253 39.5609H126.008L122.97 28.6642L119.95 39.5609H114.695L110.844 22.2577Z" fill="#2D499A" />
-                <path d="M142.394 22.248H137.033V39.5609H142.394V22.248Z" fill="#2D499A" />
-                <path d="M146.303 39.5511V22.2478H155.225C156.504 22.2043 157.781 22.3477 159.019 22.6737C159.877 22.9451 160.619 23.5016 161.119 24.2511C161.615 25.0361 161.894 25.9387 161.928 26.8669C161.963 27.795 161.75 28.7157 161.312 29.5349C160.902 30.2348 160.323 30.8205 159.629 31.2382C159.04 31.5564 158.407 31.7847 157.751 31.9156C158.673 32.1173 159.48 32.6733 159.996 33.464C160.278 33.7977 160.528 34.1574 160.741 34.5382L163.335 39.5511H157.296L154.393 34.2672C154.166 33.7599 153.837 33.3052 153.425 32.9317C153.038 32.6663 152.579 32.5276 152.109 32.5349H151.693V39.5608L146.303 39.5511ZM151.693 29.2543H153.958C154.434 29.207 154.906 29.1262 155.37 29.0124C155.717 28.9429 156.026 28.7504 156.241 28.4704C156.455 28.1925 156.573 27.8532 156.58 27.5027C156.594 27.262 156.553 27.0212 156.46 26.7985C156.368 26.5757 156.227 26.3764 156.048 26.2156C155.448 25.8561 154.75 25.6968 154.054 25.7608H151.693V29.2543Z" fill="#2D499A" />
-                <path d="M165.029 22.2383H179.362V25.9351H170.381V28.6834H178.713V32.2157H170.391V35.6222H179.623V39.5512H165.029V22.2383Z" fill="#2D499A" />
-                <path d="M182.506 22.2382L187.857 22.2285V35.2834L196.209 35.2737V39.5317L182.506 39.5511V22.2382Z" fill="#2D499A" />
-                <path d="M198.629 22.2285H212.961V25.9253H203.99V28.6737H212.313V32.2059H203.99V35.6124H213.222V39.5317L198.629 39.5414V22.2285Z" fill="#2D499A" />
-                <path d="M215.179 33.8021L220.27 33.4827C220.314 34.1761 220.545 34.8447 220.937 35.4182C221.22 35.767 221.581 36.0436 221.991 36.2252C222.403 36.407 222.85 36.4885 223.299 36.4634C223.935 36.5015 224.564 36.3091 225.07 35.9214C225.257 35.7779 225.41 35.5927 225.516 35.3804C225.621 35.1681 225.675 34.9343 225.675 34.6973C225.675 34.4604 225.621 34.2265 225.516 34.0142C225.41 33.8018 225.257 33.6167 225.07 33.4731C224.231 32.9615 223.295 32.6318 222.321 32.5053C220.504 32.2132 218.782 31.4935 217.299 30.4053C216.814 29.9967 216.426 29.4848 216.165 28.9072C215.904 28.3294 215.775 27.7006 215.789 27.0666C215.795 26.1672 216.064 25.2892 216.563 24.5408C217.141 23.7057 217.952 23.0595 218.895 22.6827C220.255 22.1741 221.702 21.9405 223.154 21.9956C224.924 21.8845 226.687 22.3165 228.205 23.2344C228.808 23.6935 229.306 24.2764 229.664 24.9442C230.024 25.612 230.235 26.3489 230.286 27.1053L225.244 27.4053C225.176 26.7531 224.873 26.1476 224.392 25.7021C223.878 25.3219 223.248 25.1335 222.612 25.1698C222.115 25.1392 221.624 25.2792 221.218 25.5666C221.07 25.6808 220.95 25.8275 220.868 25.9953C220.785 26.163 220.743 26.3475 220.744 26.5344C220.748 26.6797 220.785 26.8222 220.852 26.9512C220.919 27.0802 221.014 27.1924 221.131 27.2795C221.673 27.6195 222.285 27.8343 222.921 27.9085C224.651 28.2261 226.339 28.7391 227.954 29.4376C228.854 29.8663 229.617 30.5363 230.16 31.3731C230.625 32.1434 230.866 33.0281 230.857 33.9279C230.861 35.0219 230.54 36.0927 229.937 37.0053C229.306 37.9519 228.411 38.6922 227.363 39.1344C226.038 39.6634 224.618 39.9106 223.192 39.8602C220.289 39.8602 218.208 39.2989 217.076 38.1666C215.921 37.0119 215.232 35.4717 215.141 33.8408" fill="#2D499A" />
-                <path d="M232.639 33.7944L237.729 33.475C237.78 34.1685 238.014 34.8361 238.406 35.4105C238.692 35.7569 239.053 36.0324 239.463 36.2154C239.872 36.3984 240.32 36.484 240.768 36.4654C241.405 36.5052 242.036 36.3089 242.539 35.9138C242.727 35.767 242.88 35.5793 242.986 35.3647C243.092 35.1501 243.147 34.9143 243.148 34.6751C243.143 34.4438 243.088 34.2161 242.989 34.0075C242.888 33.799 242.745 33.6141 242.568 33.4654C241.729 32.9556 240.793 32.626 239.819 32.4976C238.007 32.2069 236.289 31.4906 234.806 30.4073C234.318 30.0015 233.927 29.4904 233.663 28.9121C233.4 28.3339 233.271 27.7037 233.287 27.0686C233.291 26.1689 233.56 25.2904 234.061 24.5428C234.632 23.7033 235.441 23.0531 236.384 22.6751C237.743 22.1674 239.191 21.937 240.642 21.9976C242.416 21.8794 244.184 22.312 245.703 23.2363C246.305 23.6962 246.802 24.2795 247.161 24.9471C247.521 25.6147 247.732 26.3512 247.784 27.1073L242.732 27.417C242.663 26.7642 242.365 26.1572 241.89 25.7041C241.379 25.3287 240.752 25.1439 240.119 25.1815C239.618 25.1497 239.121 25.2859 238.706 25.5686C238.558 25.6828 238.438 25.8295 238.356 25.9973C238.274 26.165 238.231 26.3495 238.232 26.5363C238.238 26.6825 238.276 26.8254 238.344 26.9545C238.414 27.0835 238.511 27.1954 238.629 27.2815C239.172 27.6234 239.782 27.8414 240.419 27.9202C242.151 28.233 243.839 28.7461 245.451 29.4492C246.354 29.874 247.119 30.5448 247.658 31.3847C248.126 32.1567 248.364 33.0464 248.345 33.9492C248.353 35.0394 248.036 36.1073 247.435 37.017C246.805 37.9682 245.905 38.7095 244.851 39.146C243.53 39.6741 242.113 39.9245 240.69 39.8815C237.787 39.8815 235.706 39.3105 234.564 38.1783C233.42 37.0164 232.732 35.4804 232.629 33.8525" fill="#2D499A" />
-                <path d="M249.02 23.4675C249.018 22.5943 249.275 21.7402 249.759 21.0132C250.243 20.2862 250.931 19.7191 251.737 19.3836C252.543 19.0481 253.431 18.9594 254.288 19.1285C255.144 19.2977 255.931 19.7172 256.55 20.3341C257.168 20.9508 257.589 21.7371 257.76 22.5933C257.931 23.4496 257.844 24.3374 257.51 25.1443C257.177 25.9512 256.611 26.641 255.886 27.1263C255.16 27.6117 254.306 27.8707 253.432 27.8707C252.264 27.8707 251.143 27.4071 250.315 26.5816C249.489 25.7561 249.022 24.6361 249.02 23.4675ZM249.629 23.4675C249.627 24.2201 249.849 24.9564 250.266 25.5831C250.682 26.2098 251.275 26.6988 251.97 26.9881C252.665 27.2774 253.43 27.3541 254.169 27.2085C254.907 27.0629 255.586 26.7014 256.119 26.1699C256.651 25.6383 257.015 24.9607 257.162 24.2227C257.31 23.4847 257.235 22.7195 256.947 22.024C256.66 21.3285 256.172 20.7339 255.547 20.3156C254.921 19.8972 254.185 19.674 253.432 19.674C252.426 19.674 251.46 20.0733 250.747 20.7844C250.034 21.4956 249.632 22.4605 249.629 23.4675Z" fill="#2D499A" />
-                <path d="M254.828 24.1439L255.428 24.2891C255.334 24.7254 255.095 25.1174 254.75 25.402C254.412 25.6698 253.991 25.8102 253.56 25.7988C253.146 25.8194 252.734 25.7149 252.379 25.4988C252.065 25.2941 251.821 24.9965 251.682 24.6471C251.524 24.2636 251.441 23.8526 251.44 23.4375C251.429 23.0118 251.522 22.5895 251.711 22.2084C251.885 21.8754 252.15 21.5997 252.476 21.4149C252.812 21.2315 253.188 21.1381 253.569 21.1439C253.974 21.1284 254.373 21.2476 254.702 21.4826C255.021 21.7234 255.249 22.0642 255.35 22.4504L254.76 22.5859C254.684 22.3067 254.526 22.0571 254.305 21.8697C254.087 21.7175 253.826 21.6394 253.56 21.6471C253.251 21.6373 252.946 21.7253 252.689 21.8988C252.457 22.0607 252.287 22.2959 252.205 22.5665C252.108 22.8467 252.06 23.141 252.06 23.4375C252.054 23.7676 252.109 24.0959 252.224 24.4052C252.318 24.6732 252.503 24.8995 252.747 25.0439C252.977 25.186 253.242 25.2598 253.511 25.2568C253.819 25.2678 254.119 25.1643 254.353 24.9665C254.609 24.7489 254.777 24.4466 254.828 24.1149" fill="#2D499A" />
-              </g>
-            </g>
-            <defs>
-              <clipPath id="clip0_202_719">
-                <rect width="258.387" height="60" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </div>
-
-        {/* Center Navigation */}
-        <div className="hidden lg:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
-          <Link
-            href="/"
-            className="text-gray-900 hover:text-blue-600 transition-colors font-medium"
-          >
-            Home
-          </Link>
-          <div
-            className="relative"
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
-            <button
-              className="text-gray-900 hover:text-blue-600 transition-colors font-medium flex items-center space-x-1"
-            >
-              <span>About Us</span>
-              <svg
-                className={`w-4 h-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            {isAboutOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute top-full left-0 pt-2 min-w-[200px]"
-              >
-                <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
-                  <Link
-                    href="/our-company"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Our Company
-                  </Link>
-                  <Link
-                    href="/our-milestones"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Our Milestones
-                  </Link>
-                  <Link
-                    href="/our-certifications"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Our Certifications
-                  </Link>
-                </div>
-              </motion.div>
-            )}
+        <a href="/" className="flex items-center gap-2 group">
+          <div className="relative h-12 w-48">
+            <Image
+              src="/images/ssl-wireless-logo-official.png"
+              alt="SSL Wireless"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
-          <Link
-            href="/services"
-            className="text-gray-900 hover:text-blue-600 transition-colors font-medium"
-          >
-            Services
-          </Link>
-          <Link
-            href="/research"
-            className="text-gray-900 hover:text-blue-600 transition-colors font-medium"
-          >
-            Research
-          </Link>
-          <Link
-            href="/news-and-events"
-            className="text-gray-900 hover:text-blue-600 transition-colors font-medium"
-          >
-            News
-          </Link>
-          <Link
-            href="/careers"
-            className="text-gray-900 hover:text-blue-600 transition-colors font-medium"
-          >
-            Careers
-          </Link>
-        </div>
+        </a>
 
-        {/* Right Side Actions */}
-        <div className="flex items-center space-x-4">
-          {/* Get In Touch Button */}
-          <Link href="/contact">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="hidden md:flex items-center overflow-hidden"
-              style={{
-                borderRadius: '60px',
-                border: '1px solid #2D499A',
-              }}
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navItems.map((item) => (
+            <div
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => item.children && setActiveDropdown(item.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clipPath="url(#clip0_202_750)">
-                    <rect width="45" height="45" rx="22.5" fill="#2D499A" />
-                    <path d="M21.0312 15.4685L26.75 21.4685C26.8958 21.6143 26.9688 21.781 26.9688 21.9685C26.9688 22.156 26.8958 22.333 26.75 22.4997L21.0312 28.4685C20.6979 28.7601 20.3438 28.7705 19.9688 28.4997C19.6771 28.1455 19.6771 27.7914 19.9688 27.4372L25.2188 21.9372L19.9688 16.531C19.6771 16.156 19.6771 15.8018 19.9688 15.4685C20.3438 15.1768 20.6979 15.1768 21.0312 15.4685Z" fill="white" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_202_750">
-                      <rect width="45" height="45" rx="22.5" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </div>
-              <span className="px-6 py-3 text-gray-900 font-medium">Get In Touch</span>
-            </motion.button>
-          </Link>
-
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-gray-900 z-50 relative"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={`bg-current block transition-all duration-300 ease-out 
-                  h-0.5 w-6 rounded-sm ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}
-              />
-              <span
-                className={`bg-current block transition-all duration-300 ease-out 
-                  h-0.5 w-6 rounded-sm my-0.5 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}
-              />
-              <span
-                className={`bg-current block transition-all duration-300 ease-out 
-                  h-0.5 w-6 rounded-sm ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}
-              />
-            </div>
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 top-0 bg-white z-40 pt-24 overflow-y-auto lg:hidden"
-          >
-            <div className="container mx-auto px-6 flex flex-col space-y-6">
-              <Link
-                href="/"
-                className="text-2xl font-semibold text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <a
+                href={item.href}
+                className="flex items-center gap-1 text-[15px] font-medium text-slate-600 hover:text-blue-900 transition-colors py-2"
               >
-                Home
-              </Link>
-
-              <div className="flex flex-col">
-                <button
-                  onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                  className="flex items-center justify-between text-2xl font-semibold text-gray-900"
-                >
-                  <span>About Us</span>
-                  <svg
-                    className={`w-5 h-5 transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                {item.name}
+                {item.children && (
+                  <svg className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </button>
-                <AnimatePresence>
-                  {isMobileAboutOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="ml-4 mt-4 flex flex-col space-y-4 border-l-2 border-gray-100 pl-4"
-                    >
-                      <Link href="/our-company" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
-                        Our Company
-                      </Link>
-                      <Link href="/our-milestones" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
-                        Our Milestones
-                      </Link>
-                      <Link href="/our-certifications" className="text-lg text-gray-600" onClick={() => setIsMobileMenuOpen(false)}>
-                        Our Certifications
-                      </Link>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                )}
+              </a>
 
-              <Link
-                href="/services"
-                className="text-2xl font-semibold text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="/research"
-                className="text-2xl font-semibold text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Research
-              </Link>
-              <Link
-                href="/news-and-events"
-                className="text-2xl font-semibold text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                News
-              </Link>
-              <Link
-                href="/careers"
-                className="text-2xl font-semibold text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Careers
-              </Link>
-
-              <div className="pt-8 pb-12">
-                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full">
-                  <button
-                    className="w-full flex items-center justify-center space-x-2 bg-[#2D499A] text-white py-4 rounded-full font-medium text-lg"
+              {/* Sub-menu Dropdown */}
+              <AnimatePresence>
+                {item.children && activeDropdown === item.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute top-full left-0 w-64 pt-2"
                   >
-                    <span>Get In Touch</span>
-                  </button>
-                </Link>
-              </div>
+                    <div className="bg-white border border-slate-200 rounded-2xl shadow-2xl shadow-blue-900/10 overflow-hidden p-2 backdrop-blur-xl">
+                      {item.children.map((child) => (
+                        <a
+                          key={child.name}
+                          href={child.href}
+                          className="block px-4 py-3 text-sm font-medium text-slate-600 hover:text-blue-900 hover:bg-slate-50 transition-all rounded-xl"
+                        >
+                          {child.name}
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button
+          className="lg:hidden p-2 text-slate-900"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden"
+          >
+            <div className="px-6 py-8 flex flex-col gap-4">
+              {navItems.map((item) => (
+                <div key={item.name} className="flex flex-col gap-2">
+                  <a
+                    href={item.href}
+                    onClick={() => !item.children && setMobileMenuOpen(false)}
+                    className="text-lg font-bold text-slate-900"
+                  >
+                    {item.name}
+                  </a>
+                  {item.children && (
+                    <div className="pl-4 border-l-2 border-slate-100 flex flex-col gap-3 my-2">
+                      {item.children.map((child) => (
+                        <a
+                          key={child.name}
+                          href={child.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="text-[15px] font-medium text-slate-500 active:text-blue-900"
+                        >
+                          {child.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

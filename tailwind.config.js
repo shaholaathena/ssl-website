@@ -21,6 +21,16 @@ module.exports = {
         sans: ['var(--font-mona-sans)', 'Mona Sans', 'system-ui', 'sans-serif'],
         serif: ['var(--font-playfair)', 'Playfair Display', 'serif'],
       },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'spin-reverse-slow': 'spin-reverse 4s linear infinite',
+      },
+      keyframes: {
+        'spin-reverse': {
+          from: { transform: 'rotate(360deg)' },
+          to: { transform: 'rotate(0deg)' },
+        }
+      }
     },
   },
   plugins: [],
