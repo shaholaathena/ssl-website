@@ -52,7 +52,7 @@ export default function Hero() {
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
                 Secure, regulated platforms enabling payments, digital services, and enterprise operations at national scale. <br/>
-                <b> We are empowering Industries & Communities through Digital Innovation.  </b>
+               We are empowering Industries & Communities through Digital Innovation. 
               </motion.p>
 
               <motion.div
