@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
 import Icon from '@/components/Icon'
+import Image from 'next/image'
 
 const careerBenefits = [
     { title: 'Innovation First', icon: 'innovation', desc: 'Work on cutting-edge proprietary technologies.' },
@@ -105,6 +106,71 @@ export default function Careers() {
                                 <p className="text-gray-600 text-sm">{benefit.desc}</p>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Work Environment Section */}
+            <section className="py-40 bg-slate-900 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,58,138,0.2),transparent)]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-blue-400 font-bold tracking-[0.4em] uppercase text-[10px] mb-8 block">Our Workspace</span>
+                            <h2 className="text-5xl font-bold text-white mb-10 tracking-tight leading-tight">
+                                Where Innovation <br />
+                                <span className="text-blue-400">Meets Collaboration.</span>
+                            </h2>
+                            <p className="text-xl text-slate-400 leading-relaxed font-light mb-12">
+                                Our state-of-the-art offices are designed to foster creativity, collaboration, and excellence. From modern workspaces to dedicated innovation labs, we provide an environment where great ideas flourish.
+                            </p>
+                            <div className="flex flex-wrap gap-8">
+                                <div>
+                                    <div className="text-4xl font-bold text-white mb-2">200+</div>
+                                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Team Members</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl font-bold text-white mb-2">5+</div>
+                                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Office Locations</div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative group"
+                        >
+                            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
+                                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent z-10"></div>
+                                <Image
+                                    src="/images/office-hero.jpg"
+                                    alt="SSL Wireless Office"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                            </div>
+                            {/* Floating Badge */}
+                            <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-6 shadow-2xl">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-blue-900 rounded-xl flex items-center justify-center">
+                                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-bold text-slate-900">Dhaka HQ</div>
+                                        <div className="text-xs text-slate-500">Karwan Bazar</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

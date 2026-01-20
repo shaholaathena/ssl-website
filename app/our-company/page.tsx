@@ -3,101 +3,129 @@
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
+import Icon from '@/components/Icon'
 import Image from 'next/image'
 
-import Icon from '@/components/Icon'
-
-const values = [
+const leadershipTeam = [
     {
-        title: 'Our Vision',
-        description: 'To be the leader in helping organizations improve their competitiveness by providing the best-in-class solutions.',
-        icon: 'lightbulb'
+        name: "Sayeeful Islam",
+        title: "Managing Director",
+        image: "/images/team/sayeeful-islam.jpg",
+        tier: 1
     },
     {
-        title: 'Our Mission',
-        description: 'To be the provider of best-in-class value added services and digital marketing services to the citizens and organizations in Bangladesh.',
-        icon: 'rocket'
+        name: "Ahmed Kamal Chowdhury",
+        title: "Group Advisor",
+        image: "/images/team/ahmed-kamal.jpg",
+        tier: 1
     },
     {
-        title: 'Our Values',
-        description: 'Focus on customer needs, commit to excellence, and create a positive environment for all.',
-        icon: 'trophy'
+        name: "S. Nibras Islam",
+        title: "Director, SSL Wireless",
+        image: "/images/team/nibras-islam.jpg",
+        tier: 2
+    },
+    {
+        name: "Raiyan S. Islam",
+        title: "CEO, SSLCOMMERZ",
+        image: "/images/team/raiyan-islam.jpg",
+        tier: 2
+    },
+    {
+        name: "Iftekhar Alam Ishaque",
+        title: "CEO, SSL Wireless",
+        image: "/images/team/iftekhar-alam.jpg",
+        tier: 2
+    },
+    {
+        name: "S M Raihan Rashid",
+        title: "CEO, SSL Wireless",
+        image: "/images/team/raihan-rashid.jpg",
+        tier: 2
+    },
+    {
+        name: "Abdullah Al Mahbub",
+        title: "Advisor, Group Finance",
+        image: "/images/team/abdullah-mahbub.jpg",
+        tier: 2
+    },
+    {
+        name: "Mohiuddin Tawfik",
+        title: "General Manager, Head of Banking & Financial Services",
+        image: "/images/team/mohiuddin-tawfik.jpg",
+        tier: 3
+    },
+    {
+        name: "Md. Mahmud Hassan Bhuiyan",
+        title: "General Manager, Head of Service Assurance",
+        image: "/images/team/mahmud-hassan.jpg",
+        tier: 3
+    },
+    {
+        name: "Ashekur Rahman Molla",
+        title: "Deputy General Manager, Head of Engineering",
+        image: "/images/team/ashekur-rahman.jpg",
+        tier: 3
+    },
+    {
+        name: "Mostaque Ahmed",
+        title: "Deputy General Manager, Head of Core Infrastructure",
+        image: "/images/team/mostaque-ahmed.jpg",
+        tier: 3
+    },
+    {
+        name: "Rahat Zaman Sajib",
+        title: "Assist. General Manager, Innovation Center of Excellence",
+        image: "/images/team/rahat-zaman.jpg",
+        tier: 4
+    },
+    {
+        name: "Md. Saqir Ahmed",
+        title: "Deputy General Manager, Head of E-Commerce Services",
+        image: "/images/team/saqir-ahmed.jpg",
+        tier: 4
+    },
+    {
+        name: "Md. Rahat Hossain",
+        title: "Assist. General Manager, Banking and Financial Services",
+        image: "/images/team/rahat-hossain.jpg",
+        tier: 4
+    },
+    {
+        name: "Mohammad Saiful Islam",
+        title: "Manager, Human Resource",
+        image: "/images/team/saiful-islam.jpg",
+        tier: 5
+    },
+    {
+        name: "Md. Mahabub Hossain",
+        title: "Manager, Risk & Compliance",
+        image: "/images/team/mahabub-hossain.jpg",
+        tier: 5
     }
 ]
 
-const milestones = [
+const governancePrinciples = [
     {
-        title: 'Pioneer in providing Value-Added Services to Mobile Operators and Banks',
-        description: 'SSL Wireless started its journey in 1999 as a software developer with a focus on Value Added Services. Today, SSL Wireless is a leading Service Provider in the country, with its products and services making a difference to millions of customers every day.',
-        image: '/images/office-hero.jpg',
-        icon: 'message'
+        title: "Transparency",
+        description: "Maintaining clear, open communication with stakeholders and regulators regarding operational health and strategic direction.",
+        icon: "shield"
     },
     {
-        title: 'First and the largest Merchant Solution Provider (MSP) in Bangladesh',
-        description: 'SSL Wireless is the first and largest payment gateway in Bangladesh - SSLCOMMERZ which is licensed as a Payment Service Operator (PSO) by Bangladesh Bank. It provides a secure platform for over 10000+ merchants to accept online digital payments from their customers.',
-        image: '/images/sslcommerz.png',
-        icon: 'bank'
+        title: "Accountability",
+        description: "Rigorous internal auditing and performance metrics to ensure adherence to institutional standards and national regulations.",
+        icon: "trophy"
     },
     {
-        title: 'Pioneer in Online Top-Up & Digital Marketing services',
-        description: "SSL Wireless is the first and largest online mobile top-up service provider to all the mobile operators in the country. To provide more digital services to its clients, SSL has established a Digital Marketing Agency called 'DigitAl' to provide all kinds of digital marketing services to its corporate customers.",
-        image: '/images/news-1.jpg',
-        icon: 'rocket'
-    },
-    {
-        title: 'Partnering with International companies and going beyond the borders',
-        description: 'SSL Wireless is working with leading international companies on various projects such as TATA, Google, WhatsApp, BTB etc. Recently SSL Wireless has developed and deployed a Digital Wallet platform called "Tachyon" for the international software company which is being used in multiple countries around the world.',
-        image: '/images/event-1.jpg',
-        icon: 'global'
-    },
-    {
-        title: 'Content Management for Media & Activation Campaigns for Enterprises',
-        description: 'SSL Wireless provides complete content management services for all the national news and media organizations in the country. SSL is also conducting engaging activation campaigns for SMEs and large corporations through integrated plans, helping them reach their target audience and creating meaningful interactions through its innovative media and technology solutions.',
-        image: '/images/news-3.jpg',
-        icon: 'support'
-    }
-]
-
-const workflow = [
-    {
-        title: 'Strategy',
-        description: 'We formulate unique strategies that ensure success by working with industry leaders and experts.',
-        icon: 'innovation'
-    },
-    {
-        title: 'Analysis',
-        description: 'Thoroughly evaluate every dimension to ensure we build robust and scalable solutions.',
-        icon: 'shield'
-    },
-    {
-        title: 'Success',
-        description: 'We deliver result-oriented success through our innovative media and technology platform.',
-        icon: 'trophy'
+        title: "Strategic Stability",
+        description: "Long-term planning that prioritizes infrastructure resilience over short-term market fluctuations.",
+        icon: "innovation"
     }
 ]
 
 export default function GovernancePage() {
     useSmoothScroll()
-
-    const governancePrinciples = [
-        {
-            title: "Transparency",
-            description: "Maintaining clear, open communication with stakeholders and regulators regarding operational health and strategic direction.",
-            icon: "shield"
-        },
-        {
-            title: "Accountability",
-            description: "Rigorous internal auditing and performance metrics to ensure adherence to institutional standards and national regulations.",
-            icon: "trophy"
-        },
-        {
-            title: "Strategic Stability",
-            description: "Long-term planning that prioritizes infrastructure resilience over short-term market fluctuations.",
-            icon: "innovation"
-        }
-    ]
 
     return (
         <main className="min-h-screen bg-white">
@@ -136,51 +164,124 @@ export default function GovernancePage() {
                 </div>
             </section>
 
-            {/* 2. Institutional Leadership Grid */}
+            {/* 2. Executive Leadership */}
             <section className="py-40 bg-white">
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                    <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
-                        <div className="max-w-2xl">
-                            <span className="inline-block text-blue-900 font-bold tracking-[x0.4em] uppercase text-[10px] mb-6">Executive Board</span>
-                            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-none">
-                                Strategic <br />
-                                <span className="text-blue-900">Management.</span>
-                            </h2>
-                        </div>
+                    <div className="text-center mb-20">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Executive Board</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-none mb-6">
+                            Company Management & <br />
+                            <span className="text-blue-900">Leadership Team.</span>
+                        </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            { role: "Executive Management", area: "Strategic Planning" },
-                            { role: "Technical Operations", area: "Infrastructure Scale" },
-                            { role: "Regulatory Affairs", area: "Compliance Hub" },
-                            { role: "Product Strategy", area: "Innovation Framework" },
-                            { role: "Corporate Development", area: "Long-term Impact" },
-                            { role: "Global Solutions", area: "Ecosystem Growth" },
-                        ].map((leader, i) => (
+                    {/* Top Leadership - Tier 1 */}
+                    <div className="flex justify-center gap-12 mb-24">
+                        {leadershipTeam.filter(leader => leader.tier === 1).map((leader, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="group relative bg-slate-50 border border-slate-100 rounded-[2rem] p-10 hover:bg-white hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                                className="text-center group"
                             >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-900/5 blur-3xl group-hover:bg-blue-900/10 transition-all"></div>
-                                <div className="relative z-10">
-                                    <div className="w-12 h-1 bg-blue-900 mb-8"></div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{leader.role}</h3>
-                                    <div className="text-[10px] font-bold text-blue-900 uppercase tracking-widest mb-6">
-                                        {leader.area}
-                                    </div>
-                                    <p className="text-slate-500 text-sm font-light leading-relaxed mb-8">
-                                        Overseeing the critical intersection of high-scale engineering and regulatory alignment to deliver national-level impact.
-                                    </p>
-                                    <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                        Verified Role
+                                <div className="relative w-48 h-48 mx-auto mb-6">
+                                    <div className="absolute inset-0 bg-blue-900 rounded-full blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                                        <Image src={leader.image} alt={leader.name} layout="fill" objectFit="cover" />
                                     </div>
                                 </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-2">{leader.name}</h3>
+                                <div className="text-sm font-bold text-blue-900 uppercase tracking-widest">{leader.title}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Senior Leadership - Tier 2 */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-20">
+                        {leadershipTeam.filter(leader => leader.tier === 2).map((leader, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="text-center group"
+                            >
+                                <div className="relative w-32 h-32 mx-auto mb-4">
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-slate-200 shadow-lg group-hover:border-blue-900 transition-colors">
+                                        <Image src={leader.image} alt={leader.name} layout="fill" objectFit="cover" />
+                                    </div>
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-1">{leader.name}</h3>
+                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider leading-tight">{leader.title}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Management Team - Tier 3 */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                        {leadershipTeam.filter(leader => leader.tier === 3).map((leader, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-slate-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all"
+                            >
+                                <div className="relative w-24 h-24 mx-auto mb-4">
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white shadow-md">
+                                        <Image src={leader.image} alt={leader.name} layout="fill" objectFit="cover" />
+                                    </div>
+                                </div>
+                                <h3 className="text-base font-bold text-slate-900 mb-2">{leader.name}</h3>
+                                <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wide leading-tight">{leader.title}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Deputy Management - Tier 4 */}
+                    <div className="grid grid-cols-3 gap-6 mb-16">
+                        {leadershipTeam.filter(leader => leader.tier === 4).map((leader, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white border border-slate-100 rounded-xl p-5 text-center hover:border-blue-200 transition-all"
+                            >
+                                <div className="relative w-20 h-20 mx-auto mb-3">
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border border-slate-200">
+                                        <Image src={leader.image} alt={leader.name} layout="fill" objectFit="cover" />
+                                    </div>
+                                </div>
+                                <h3 className="text-sm font-bold text-slate-900 mb-1">{leader.name}</h3>
+                                <div className="text-[8px] font-bold text-slate-400 uppercase tracking-wide leading-tight">{leader.title}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Managers - Tier 5 */}
+                    <div className="flex justify-center gap-6">
+                        {leadershipTeam.filter(leader => leader.tier === 5).map((leader, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white border border-slate-100 rounded-xl p-5 text-center hover:border-blue-200 transition-all w-64"
+                            >
+                                <div className="relative w-20 h-20 mx-auto mb-3">
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border border-slate-200">
+                                        <Image src={leader.image} alt={leader.name} layout="fill" objectFit="cover" />
+                                    </div>
+                                </div>
+                                <h3 className="text-sm font-bold text-slate-900 mb-1">{leader.name}</h3>
+                                <div className="text-[8px] font-bold text-slate-400 uppercase tracking-wide leading-tight">{leader.title}</div>
                             </motion.div>
                         ))}
                     </div>

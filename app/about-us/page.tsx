@@ -5,63 +5,104 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
 import Icon from '@/components/Icon'
+import Image from 'next/image'
+
+const milestones = [
+    {
+        year: '2022',
+        title: 'Appraised at CMMI Level 3',
+        description: 'Achieved Level 3 of the CMMI Institute\'s Capability Maturity Model Integration for Development (CMMI-DEV v1.3).',
+        image: '/images/milestone-2023.jpg'
+    },
+    {
+        year: '2018',
+        title: 'Global Approval: ISO 27001',
+        description: 'Achieved ISO 27001 certification, the international standard for information security.',
+        image: '/images/office-hero.jpg'
+    },
+    {
+        year: '2017',
+        title: 'Digital Marketing & Global Expansion',
+        description: 'Launched 360-degree digital marketing wing and deployed "FastPay" mobile wallet in Kurdistan, Iraq.',
+        image: '/images/news-1.jpg'
+    },
+    {
+        year: '2016',
+        title: 'PSO License from Central Bank',
+        description: 'Received Payment Systems Operator (PSO) license from Bangladesh Bank.',
+        image: '/images/sslcommerz.png'
+    },
+    {
+        year: '2010',
+        title: 'Revolutionizing Payment Gateways',
+        description: 'Launched SSLCOMMERZ, the first online payment gateway in Bangladesh.',
+        image: '/images/event-1.jpg'
+    },
+    {
+        year: '1999',
+        title: 'A Dream Becomes Reality',
+        description: 'Software Shop Limited started its journey as an associated company of Concorde Garments.',
+        image: '/images/company-hero-new.jpg'
+    }
+]
+
+
+const pillars = [
+    {
+        title: "Scale",
+        description: "Built to handle national-level transaction volumes and peak concurrency with sub-second latency.",
+        icon: "rocket"
+    },
+    {
+        title: "Trust",
+        description: "Licensed and audited by regulators to ensure the highest standards of financial security and transparency.",
+        icon: "shield"
+    },
+    {
+        title: "Impact",
+        description: "Empowering millions of citizens and thousands of businesses through inclusive digital connectivity.",
+        icon: "global"
+    }
+]
+
+const values = [
+    {
+        title: 'Our Vision',
+        description: 'To be the leader in helping organizations improve their competitiveness by providing the best-in-class solutions.',
+        icon: 'lightbulb'
+    },
+    {
+        title: 'Our Mission',
+        description: 'To be the provider of best-in-class value added services and digital marketing services to the citizens and organizations in Bangladesh.',
+        icon: 'rocket'
+    },
+    {
+        title: 'Our Values',
+        description: 'Focus on customer needs, commit to excellence, and create a positive environment for all.',
+        icon: 'trophy'
+    }
+]
+
+const workflow = [
+    {
+        title: 'Strategy',
+        description: 'We formulate unique strategies that ensure success by working with industry leaders and experts.',
+        icon: 'innovation'
+    },
+    {
+        title: 'Analysis',
+        description: 'Thoroughly evaluate every dimension to ensure we build robust and scalable solutions.',
+        icon: 'shield'
+    },
+    {
+        title: 'Success',
+        description: 'We deliver result-oriented success through our innovative media and technology platform.',
+        icon: 'trophy'
+    }
+]
 
 export default function AboutUsPage() {
     useSmoothScroll()
-
-    const pillars = [
-        {
-            title: "Scale",
-            description: "Built to handle national-level transaction volumes and peak concurrency with sub-second latency.",
-            icon: "rocket"
-        },
-        {
-            title: "Trust",
-            description: "Licensed and audited by regulators to ensure the highest standards of financial security and transparency.",
-            icon: "shield"
-        },
-        {
-            title: "Impact",
-            description: "Empowering millions of citizens and thousands of businesses through inclusive digital connectivity.",
-            icon: "global"
-        }
-    ]
-
-    const values = [
-        {
-            title: 'Our Vision',
-            description: 'To be the leader in helping organizations improve their competitiveness by providing the best-in-class solutions.',
-            icon: 'lightbulb'
-        },
-        {
-            title: 'Our Mission',
-            description: 'To be the provider of best-in-class value added services and digital marketing services to the citizens and organizations in Bangladesh.',
-            icon: 'rocket'
-        },
-        {
-            title: 'Our Values',
-            description: 'Focus on customer needs, commit to excellence, and create a positive environment for all.',
-            icon: 'trophy'
-        }
-    ]
-
-    const workflow = [
-        {
-            title: 'Strategy',
-            description: 'We formulate unique strategies that ensure success by working with industry leaders and experts.',
-            icon: 'innovation'
-        },
-        {
-            title: 'Analysis',
-            description: 'Thoroughly evaluate every dimension to ensure we build robust and scalable solutions.',
-            icon: 'shield'
-        },
-        {
-            title: 'Success',
-            description: 'We deliver result-oriented success through our innovative media and technology platform.',
-            icon: 'trophy'
-        }
-    ]
 
     return (
         <main className="min-h-screen bg-white">
@@ -275,7 +316,66 @@ export default function AboutUsPage() {
                 </div>
             </section>
 
-            {/* 7. Final Grouping CTA */}
+            {/* 7. History & Milestones Timeline */}
+            <section className="py-40 bg-white">
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div className="text-center mb-24">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Journey</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight mb-6">
+                            History & <span className="text-blue-900">Milestones.</span>
+                        </h2>
+                        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-light">
+                            Two decades of pioneering innovation and institutional trust-building across Bangladesh's digital landscape.
+                        </p>
+                    </div>
+
+                    <div className="space-y-32">
+                        {milestones.map((milestone, index) => {
+                            const isEven = index % 2 === 0
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7, delay: index * 0.1 }}
+                                    className={`grid lg:grid-cols-2 gap-16 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}
+                                >
+                                    {/* Image Side */}
+                                    <div className={`relative ${!isEven ? 'lg:order-2' : ''}`}>
+                                        <div className="relative h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                                            <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                            <Image
+                                                src={milestone.image}
+                                                alt={milestone.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                        </div>
+                                        {/* Year Badge */}
+                                        <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-900 rounded-full flex items-center justify-center shadow-2xl">
+                                            <span className="text-white font-bold text-xl">{milestone.year}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Content Side */}
+                                    <div className={!isEven ? 'lg:order-1' : ''}>
+                                        <div className="w-12 h-1 bg-blue-900 mb-8"></div>
+                                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight">
+                                            {milestone.title}
+                                        </h3>
+                                        <p className="text-lg text-slate-500 leading-relaxed font-light">
+                                            {milestone.description}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* 8. Final Grouping CTA */}
             <section className="py-40 bg-slate-50">
                 <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
                     <motion.div

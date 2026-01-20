@@ -51,7 +51,8 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Secure, regulated platforms enabling payments, digital services, and enterprise operations at national scale.
+                Secure, regulated platforms enabling payments, digital services, and enterprise operations at national scale. <br/>
+                We are empowering Industries & Communities through Digital Innovation. 
               </motion.p>
 
               <motion.div
