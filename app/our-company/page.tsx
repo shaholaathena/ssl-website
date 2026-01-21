@@ -15,6 +15,12 @@ const leadershipTeam = [
         tier: 1
     },
     {
+        name: "Sabrina Islam",
+        title: "Chairman",
+        image: "/images/team/sabrina-islam.png",
+        tier: 1
+    },
+    {
         name: "Ahmed Kamal Chowdhury",
         title: "Group Advisor",
         image: "/images/team/ahmed-kamal.png",
