@@ -28,7 +28,7 @@ const leadershipTeam = [
     },
     {
         name: "Raiyan S. Islam",
-        title: "CEO, SSLCOMMERZ",
+        title: "Director & CEO, SSLCOMMERZ",
         image: "/images/team/raiyan-islam.png",
         tier: 2
     },
