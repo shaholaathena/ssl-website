@@ -27,15 +27,15 @@ const leadershipTeam = [
         tier: 1
     },
     {
-        name: "S. Nibras Islam",
-        title: "Director, SSL Wireless",
-        image: "/images/team/nibras-islam.png",
-        tier: 2
-    },
-    {
         name: "Raiyan S. Islam",
         title: "Director & CEO, SSLCOMMERZ",
         image: "/images/team/raiyan-islam.png",
+        tier: 2
+    },
+    {
+        name: "S. Nibras Islam",
+        title: "Director, SSL Wireless",
+        image: "/images/team/nibras-islam.png",
         tier: 2
     },
     {
