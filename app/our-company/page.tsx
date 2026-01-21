@@ -9,15 +9,15 @@ import Image from 'next/image'
 
 const leadershipTeam = [
     {
-        name: "Sayeeful Islam",
-        title: "Managing Director",
-        image: "/images/team/sayeeful-islam.png",
-        tier: 1
-    },
-    {
         name: "Sabrina Islam",
         title: "Chairman",
         image: "/images/team/sabrina-islam.png",
+        tier: 1
+    },
+    {
+        name: "Sayeeful Islam",
+        title: "Managing Director",
+        image: "/images/team/sayeeful-islam.png",
         tier: 1
     },
     {
