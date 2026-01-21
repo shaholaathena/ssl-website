@@ -225,7 +225,7 @@ export default function CompliancePage() {
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
                     <div className="text-center mb-24">
                         <h2 className="text-[12px] font-bold text-blue-500 uppercase tracking-[0.5em] mb-6">Security Depth</h2>
-                        <h3 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter">Audited. Hardened. Infinite.</h3>
+                        <h3 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter">Continuously Audited. Securely Engineered.</h3>
                         <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light">Independent validation is a continuous process, not a periodic event. Our systems are scanned daily and audited quarterly.</p>
                     </div>
 

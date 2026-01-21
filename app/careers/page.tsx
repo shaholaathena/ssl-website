@@ -131,7 +131,7 @@ export default function Careers() {
                             </p>
                             <div className="flex flex-wrap gap-8">
                                 <div>
-                                    <div className="text-4xl font-bold text-white mb-2">200+</div>
+                                    <div className="text-4xl font-bold text-white mb-2">300+</div>
                                     <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Team Members</div>
                                 </div>
                                 <div>
