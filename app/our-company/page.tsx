@@ -194,7 +194,7 @@ export default function GovernancePage() {
                     </div>
 
                     {/* Tier 1: The Visionaries */}
-                    <div className="grid md:grid-cols-2 gap-12 lg:gap-24 mb-32 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-32 max-w-7xl mx-auto">
                         {leadershipTeam.filter(leader => leader.tier === 1).map((leader, i) => (
                             <LeaderCardLarge key={i} leader={leader} index={i} />
                         ))}
