@@ -46,7 +46,7 @@ const leadershipTeam = [
     },
     {
         name: "S M Raihan Rashid",
-        title: "CEO, SSL Wireless",
+        title: "Chief Corporate & Human Resources Officer",
         image: "/images/team/raihan-rashid.png",
         tier: 2
     },
@@ -80,12 +80,7 @@ const leadershipTeam = [
         image: "/images/team/mostaque-ahmed.png",
         tier: 3
     },
-    {
-        name: "Rahat Zaman Sajib",
-        title: "Assist. General Manager, Innovation Center of Excellence",
-        image: "/images/team/rahat-zaman.jpg",
-        tier: 4
-    },
+
     {
         name: "Md. Sagir Ahmed",
         title: "Deputy General Manager, Head of E-Commerce Services",
@@ -102,13 +97,13 @@ const leadershipTeam = [
         name: "Mohammad Ashfaque Ali",
         title: "Head of Project Management Office",
         image: "/images/team/mohammad-ashfaque.png",
-        tier: 5
+        tier: 4
     },
     {
         name: "Mohammad Saiful Islam",
         title: "Head of Human Resources",
         image: "/images/team/saiful-islam.png",
-        tier: 5
+        tier: 4
     },
     {
         name: "Mohaimen-Al-Rashid",
@@ -228,7 +223,7 @@ export default function GovernancePage() {
 
                         {/* Tier 4 */}
                         <div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                 {leadershipTeam.filter(leader => leader.tier === 4).map((leader, i) => (
                                     <LeaderCardStandard key={i} leader={leader} index={i} />
                                 ))}
@@ -237,7 +232,7 @@ export default function GovernancePage() {
 
                         {/* Tier 5 */}
                         <div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-xl mx-auto">
                                 {leadershipTeam.filter(leader => leader.tier === 5).map((leader, i) => (
                                     <LeaderCardStandard key={i} leader={leader} index={i} />
                                 ))}
