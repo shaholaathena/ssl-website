@@ -70,7 +70,7 @@ const leadershipTeam = [
     },
     {
         name: "Ashekur Rahman Molla",
-        title: "Deputy General Manager, Head of Engineering",
+        title: "General Manager, Head of Engineering",
         image: "/images/team/ashekur-rahman.png",
         tier: 3
     },
