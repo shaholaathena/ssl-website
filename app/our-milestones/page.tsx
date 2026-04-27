@@ -9,82 +9,79 @@ import Image from 'next/image'
 
 const milestones = [
     {
-        year: '2022',
+        year: '2021',
+        title: 'SSLCOMMERZ launches Bangla QR',
+        description: 'SSLCOMMERZ has successfully launched Bangla QR, a unified national QR code for payments, enabling merchants across the country to accept digital payments more easily and securely.'
+    },
+    {
+        year: '2020',
         title: 'Appraised at CMMI Level 3',
-        description: 'Achieved Level 3 of the CMMI Institute’s Capability Maturity Model Integration for Development (CMMI-DEV v1.3). This certifies SSL Wireless follows detailed process areas in product and service development, quality assurance, and project management.',
-        image: '/images/milestone-2023.jpg'
+        description: 'We have achieved level 3 of the CMMI Institute’s Capability Maturity Model Integration for Development (CMMI-DEV v1.3) for software development, maintenance, and quality assurance. This certifies SSL Wireless follows detailed process areas in product and service development, Decision Analysis and Resolution (DAR), Integrated Project Management (IPM), Organizational Process Definition (OPD), Organizational Process Focus (OPF), Organizational Training (OT), Product Integration (PI), Requirements Development (RD), Risk Management (RSKM), Technical Solution (TS), Validation (VAL), and Verification (VER).'
     },
     {
-        year: '2018',
+        year: '2019',
         title: 'Global Approval: ISO 27001',
-        description: 'Achieved ISO 27001 certification, the international standard for information security, ensuring the highest level of data protection and privacy for our clients.',
-        image: '/images/office-hero.jpg'
+        description: 'We achieved ISO 27001 certification for international standard for information security.'
     },
     {
         year: '2018',
-        title: 'Getting Future Ready: IoT',
-        description: 'Started building an Internet of Things (IoT) lab, growing capabilities in AI and Machine Learning. Rebranded the card-on-file platform as Easy Checkout and received awards from Mastercard.',
-        image: '/images/milestone-2020.jpg'
+        title: 'Getting Future Ready: IOT',
+        description: 'SSL Wireless has started building an Internet of Things (IoT) lab and growing capabilities in IoT, Artificial Intelligence, and Machine Learning. We have rebranded the existing card-on-file platform as Easy Checkout and started a promotion campaign called Save & Save by partnering with Visa. This has resulted in us winning awards from Mastercard and the BASIS National ICT Award.'
     },
     {
         year: '2017',
-        title: 'Digital Marketing & Global Expansion',
-        description: 'Launched a 360-degree digital marketing wing and deployed the "FastPay" mobile wallet in Kurdistan, Iraq, marking our first international fintech export.',
-        image: '/images/news-1.jpg'
+        title: 'Introduction of Digital Marketing Solutions & working with international organizations',
+        description: 'We launched a 360-degree digital marketing wing. Launched an own developed Digital Wallet/Mobile Wallet platform named ‘FastPay’ in Kurdistan, Iraq, exporting a digital wallet app to a foreign country for the first time in Bangladesh. Developed an Indian Visa Processing Fee Payment System (web & mobile app) for the Indian Visa Application Centre (IVAC). Developed bill collection apps and setup KIOSK for complaint management for a Utility Biller along with a Smart Meter Top-Up app for DESCO. In 2017, SSL also received PCI DSS Version 3.2 ‘Level 1’ Service Provider compliance certification. We also started and launched our Card-on-File services along with QR Payments, another first in the country. Won the Champion Award for DESCO Mobile App and SSLCOMMERZ.'
     },
     {
         year: '2016',
-        title: 'PSO License from Central Bank',
-        description: 'Received the Payment Systems Operator (PSO) license from Bangladesh Bank and launched the first-ever online bill collection app for utility billers.',
-        image: '/images/sslcommerz.png'
+        title: 'PSO license from the central bank',
+        description: 'Received the Payment Systems Operator (PSO) license from the central bank of Bangladesh. Started to provide cybersecurity tools to clients in the banking and financial industry. The same year, the DESCO mobile app went live, which is the first-ever online bill collection and complaint management app for any utility biller in Bangladesh.'
     },
     {
         year: '2015',
-        title: 'Strategic Partnership with VISA',
-        description: 'Signed a partnership with VISA to promote e-commerce in Bangladesh, offering innovative payment solutions and growing the SSLCOMMERZ ecosystem.',
-        image: '/images/milestone-2018.jpg'
-    },
-    {
-        year: '2014',
-        title: 'Helping Businesses Grow Online',
-        description: 'Became the largest acquirer of merchants and payment channels through SSLCOMMERZ, launching specialized subscription services and embedded VAS apps.',
-        image: '/images/event-2.jpg'
+        title: 'Signed with VISA',
+        description: 'Added many more large enterprises to SSLCOMMERZ. Besides, SSL got connected to a few more Utility billers to provide Utility Bill Payment Solutions to banks. Signed a partnership with VISA, the world’s number one payment technology provider, for www.easy.com.bd to promote e-commerce in Bangladesh, offering a 5% bonus for any Visa card.'
     },
     {
         year: '2013',
-        title: 'E-Ticketing & Field Automation',
-        description: 'Launched BPL E-Ticketing and partnered with FieldEz for field force tracking. Started connecting banks to our Virtual Recharge platform via APIs.',
-        image: '/images/news-2.jpg'
+        title: 'Helping businesses grow online',
+        description: 'Became the largest acquirer of merchants and payment channels through SSLCOMMERZ and launched first-time MT (subscription) services with one of the largest operators and TV channels, along with embedded VAS apps for handset companies.'
+    },
+    {
+        year: '2012',
+        title: 'E-Ticketing',
+        description: 'Launched BPL E-Ticketing at www.easy.com.bd and signed a partnership with FieldEz for a field force tracking solution, providing Sales Tracking Service for mobile handset companies. Started connecting banks to its ‘Virtual Recharge (VR)’ platform with a set of easy-to-integrate APIs.'
     },
     {
         year: '2011',
-        title: 'Virtual Recharge Evolution',
-        description: 'Brought the first virtual recharge platform for banks and launched easy.com.bd, the premier online recharge platform in Bangladesh.',
-        image: '/images/milestone-2015.jpg'
+        title: 'Virtual Recharge',
+        description: 'Brought a virtual recharge platform for banks and launched the first online recharge platform, www.easy.com.bd in Bangladesh, and also started to provide field force automation solutions.'
     },
     {
         year: '2010',
-        title: 'Revolutionizing Payment Gateways',
-        description: 'Launched SSLCOMMERZ, the first online payment gateway in Bangladesh, along with airtime recharge services for mobile operators.',
-        image: '/images/event-1.jpg'
+        title: 'Changing the landscape of technology integration',
+        description: 'Launched the first online payment gateway platform called “SSLCOMMERZ” and mobile airtime recharge service with a bank for two mobile network operators, another first in Bangladesh.'
+    },
+    {
+        year: '2009',
+        title: 'Voyage towards disruptive innovation',
+        description: 'Launched the first news-on-demand portal, SMS Insurance, the first mobile banking application in Bangladesh, masking SMS, and brought the world’s leader in digital security, VeriSign Inc., to Bangladesh.'
     },
     {
         year: '2008',
-        title: 'Pioneering Mobile Banking',
-        description: 'Launched the first news-on-demand portal, SMS Insurance, and the very first mobile banking application in Bangladesh.',
-        image: '/images/news-3.jpg'
+        title: 'Realization of the dream into reality',
+        description: 'Launched the first shortcode-based SMS banking platform, which became a popular choice of banks in reaching out to customers. We also became a media and content aggregator by launching IVR News services, also a first in the country.'
     },
     {
         year: '2007',
-        title: 'The Revamp to SSL Wireless',
-        description: 'Software Shop Limited revamped as SSL Wireless, shifting focus to domestic software development, telecommunication VAS, and fintech services.',
-        image: '/images/office-hero.png'
+        title: 'The beginning of a budding dream',
+        description: 'In the year 2007, Software Shop Limited revamped as SSL Wireless and started focusing on the domestic software development and telecommunication VAS business. Within a few years, SSL started focusing on the development of fintech services.'
     },
     {
         year: '1999',
-        title: 'A Dream Becomes Reality',
-        description: 'Software Shop Limited started its journey as an associated company of Concorde Garments, beginning as a franchisee of Aptech IT education.',
-        image: '/images/company-hero-new.jpg'
+        title: 'A dream becomes Software Shop Limited',
+        description: 'Software Shop Limited started its journey in 1999 as an associated company of Concorde Garments, starting as a franchisee of Aptech, the leading Indian IT education company.'
     }
 ]
 
@@ -130,17 +127,61 @@ export default function OurMilestones() {
             </section>
 
             {/* Timeline Section */}
-            <section className="py-24 relative overflow-hidden" ref={containerRef}>
-                {/* Center Line */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2 hidden md:block" />
+            <section className="py-40 bg-white overflow-hidden">
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div className="text-center mb-32">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Corporate Evolution</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight mb-6">
+                            History & <span className="text-blue-900">Milestones.</span>
+                        </h2>
+                        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-light">
+                            A legacy of institutional trust and digital innovation, spanning over two decades of Bangladesh's technological landscape.
+                        </p>
+                    </div>
 
-                <div className="container mx-auto px-6 relative">
-                    {milestones.map((item, index) => {
-                        const isEven = index % 2 === 0
-                        return (
-                            <TimelineItem key={index} item={item} isEven={isEven} index={index} />
-                        )
-                    })}
+                    <div className="relative">
+                        {/* Central Vertical Line - Desktop */}
+                        <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-1/2"></div>
+
+                        <div className="space-y-16 md:space-y-32 relative">
+                            {milestones.map((milestone, index) => {
+                                const isEven = index % 2 === 0
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.7, delay: index * 0.05 }}
+                                        className={`flex flex-col md:flex-row items-start md:items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
+                                    >
+                                        {/* Content Side */}
+                                        <div className="w-full md:w-5/12 pl-20 md:pl-0">
+                                            <div className={`p-8 md:p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group ${isEven ? 'md:text-right' : 'md:text-left text-left'}`}>
+                                                <div className={`w-12 h-1 bg-blue-900/10 mb-6 group-hover:bg-blue-900 transition-colors ${isEven ? 'md:ml-auto' : ''}`}></div>
+                                                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors tracking-tight">
+                                                    {milestone.title}
+                                                </h3>
+                                                <p className="text-lg text-slate-500 leading-relaxed font-light group-hover:text-slate-600 transition-colors">
+                                                    {milestone.description}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Year Marker Side */}
+                                        <div className="absolute left-0 md:relative md:left-auto flex items-center justify-center w-16 md:w-2/12">
+                                            <div className="z-10 w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-xl group-hover:border-blue-900 group-hover:bg-blue-900 transition-all duration-500">
+                                                <span className="text-blue-900 group-hover:text-white font-bold text-lg md:text-xl transition-colors">{milestone.year}</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Spacer */}
+                                        <div className="hidden md:block md:w-5/12"></div>
+                                    </motion.div>
+                                )
+                            })}
+                        </div>
+                    </div>
                 </div>
             </section>
 
