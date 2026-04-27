@@ -9,15 +9,15 @@ import Image from 'next/image'
 
 const leadershipTeam = [
     {
-        name: "Sabrina Islam",
-        title: "Chairman",
-        image: "/images/team/sabrina-islam.png",
+        name: "Sayeeful Islam",
+        title: "Managing Director & Founder",
+        image: "/images/team/sayeeful-islam.png",
         tier: 1
     },
     {
-        name: "Sayeeful Islam",
-        title: "Managing Director",
-        image: "/images/team/sayeeful-islam.png",
+        name: "Sabrina Islam",
+        title: "Chairman",
+        image: "/images/team/sabrina-islam.png",
         tier: 1
     },
     {
@@ -27,6 +27,12 @@ const leadershipTeam = [
         tier: 1
     },
     {
+        name: "Iftekhar Alam Ishaque",
+        title: "Chief Executive Officer (CEO)",
+        image: "/images/team/iftekhar-alam.png",
+        tier: 2
+    },
+    {
         name: "Raiyan S. Islam",
         title: "Director & CEO, SSLCOMMERZ",
         image: "/images/team/raiyan-islam.png",
@@ -34,14 +40,8 @@ const leadershipTeam = [
     },
     {
         name: "S. Nibras Islam",
-        title: "Director, SSL Wireless",
+        title: "Director",
         image: "/images/team/nibras-islam.png",
-        tier: 2
-    },
-    {
-        name: "Iftekhar Alam Ishaque",
-        title: "CEO, SSL Wireless",
-        image: "/images/team/iftekhar-alam.png",
         tier: 2
     },
     {
@@ -57,7 +57,13 @@ const leadershipTeam = [
         tier: 2
     },
     {
-        name: "Mohiuddin Tawfik",
+        name: "Md. Sagir Ahmed",
+        title: "Chief Business Officer",
+        image: "/images/team/sagir-ahmed.png",
+        tier: 3
+    },
+    {
+        name: "Md. Mohiuddin Tawfik",
         title: "General Manager, Head of Banking & Financial Services",
         image: "/images/team/mohiuddin-tawfik.png",
         tier: 3
@@ -74,17 +80,11 @@ const leadershipTeam = [
         image: "/images/team/ashekur-rahman.png",
         tier: 3
     },
+
     {
         name: "Mostaque Ahmed",
         title: "Deputy General Manager, Head of Core Infrastructure",
         image: "/images/team/mostaque-ahmed.png",
-        tier: 3
-    },
-
-    {
-        name: "Md. Sagir Ahmed",
-        title: "Deputy General Manager, Head of E-Commerce Services",
-        image: "/images/team/sagir-ahmed.png",
         tier: 4
     },
     {
@@ -163,11 +163,11 @@ export default function GovernancePage() {
                         </div>
 
                         <h1 className="text-5xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tighter leading-[0.95]">
-                            Governance & <br />
-                            <span className="text-blue-900">Leadership.</span>
+                            Leadership<br />
+                            <span className="text-blue-900 text-3xl md:text-6xl">Twenty-five years of stewardship.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed font-light text-balance mb-12">
-                            Guided by veterans of the digital landscape, our leadership ensures strategic stability and innovative growth across all regulated sectors.
+                            SSL Wireless has been led, from the start, by a team that combines deep domestic experience with international perspective. The same hands that built the country’s first SMS banking platform are still in the business today.
                         </p>
                     </motion.div>
                 </div>

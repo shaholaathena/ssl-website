@@ -21,7 +21,7 @@ export default function Header() {
       href: '/about-us',
       children: [
         { name: 'Company Overview', href: '/about-us' },
-        { name: 'Leadership & Governance', href: '/our-company' },
+        { name: 'Leadership', href: '/our-company' },
         { name: 'History & Milestones', href: '/our-milestones' },
         { name: 'Careers', href: '/careers' },
       ]

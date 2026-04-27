@@ -8,10 +8,31 @@ import Icon from '@/components/Icon'
 import Image from 'next/image'
 
 const careerBenefits = [
-    { title: 'Innovation First', icon: 'innovation', desc: 'Work on cutting-edge proprietary technologies.' },
-    { title: 'Growth & Learning', icon: 'growth', desc: 'Continuous learning opportunities and workshops.' },
-    { title: 'Health & Wellness', icon: 'health', desc: 'Comprehensive health coverage for you and family.' },
-    { title: 'Global Exposure', icon: 'global', desc: 'Collaborate with international clients and teams.' }
+    {
+        title: 'Real systems, real scale',
+        icon: 'global',
+        desc: 'You will work on platforms that actual banks, regulators and enterprises depend on — not on demos.'
+    },
+    {
+        title: 'A serious technical bar',
+        icon: 'shield',
+        desc: 'PCI DSS, ISO 27001, CMMI Level 3 — the audits are external and the standards are non-negotiable. Engineers learn on the job.'
+    },
+    {
+        title: 'Ownership over outcomes',
+        icon: 'rocket',
+        desc: 'We are a flat, accountable organisation. Strong individual contributors are given real responsibility quickly.'
+    },
+    {
+        title: 'Long careers',
+        icon: 'growth',
+        desc: 'Many of our most senior engineers and product leaders have been with us for a decade or more.'
+    },
+    {
+        title: 'Frontier AI',
+        icon: 'lightbulb',
+        desc: "Two decades of transaction, distribution and messaging data — the substrate serious AI engineers can't build outside SSL."
+    }
 ]
 
 const jobs = [
@@ -64,12 +85,12 @@ export default function Careers() {
                             <div className="h-px w-20 bg-blue-900/10"></div>
                         </div>
 
-                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
-                            Shape the <br />
-                            <span className="text-blue-900">Future with Us.</span>
+                        <h1 className="text-4xl md:text-7xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Build the infrastructure <br />
+                            <span className="text-blue-900">a country runs on.</span>
                         </h1>
                         <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-12">
-                            Join a team of passionate innovators, engineers, and visionaries solving the world's most complex digital challenges at national-scale.
+                            The systems we operate carry mission-critical workloads for banks, regulators and tens of thousands of businesses. The work is hard, the standards are high, and the impact is real — every day, in the lives of tens of millions.
                         </p>
 
                         <motion.button
@@ -83,13 +104,12 @@ export default function Careers() {
                 </div>
             </section>
 
-            {/* Benefits */}
             <section className="py-24 bg-white">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-normal text-gray-900">Why SSL Wireless?</h2>
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div className="text-center mb-24">
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight">Why SSL Wireless?</h2>
                     </div>
-                    <div className="grid md:grid-cols-4 gap-8">
+                    <div className="flex flex-wrap justify-center gap-8">
                         {careerBenefits.map((benefit, i) => (
                             <motion.div
                                 key={i}
@@ -97,13 +117,13 @@ export default function Careers() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-6 rounded-2xl bg-gray-50 border border-gray-100 text-center hover:shadow-lg transition-shadow"
+                                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)] p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 flex flex-col items-center text-center hover:bg-white hover:shadow-2xl transition-all duration-500 group"
                             >
-                                <div className="flex justify-center text-blue-600 mb-6">
-                                    <Icon name={benefit.icon} className="w-12 h-12" />
+                                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-blue-900 shadow-sm mb-10 group-hover:bg-blue-900 group-hover:text-white transition-all duration-500">
+                                    <Icon name={benefit.icon} className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                                <p className="text-gray-600 text-sm">{benefit.desc}</p>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">{benefit.title}</h3>
+                                <p className="text-lg text-slate-500 leading-relaxed font-light">{benefit.desc}</p>
                             </motion.div>
                         ))}
                     </div>

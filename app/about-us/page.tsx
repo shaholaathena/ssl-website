@@ -9,43 +9,81 @@ import Image from 'next/image'
 
 const milestones = [
     {
-        year: '2022',
+        year: '2021',
+        title: 'SSLCOMMERZ launches Bangla QR',
+        description: 'SSLCOMMERZ has successfully launched Bangla QR, a unified national QR code for payments, enabling merchants across the country to accept digital payments more easily and securely.'
+    },
+    {
+        year: '2020',
         title: 'Appraised at CMMI Level 3',
-        description: 'Achieved Level 3 of the CMMI Institute\'s Capability Maturity Model Integration for Development (CMMI-DEV v1.3).',
-        image: '/images/milestone-2023.jpg'
+        description: 'We have achieved level 3 of the CMMI Institute’s Capability Maturity Model Integration for Development (CMMI-DEV v1.3) for software development, maintenance, and quality assurance. This certifies SSL Wireless follows detailed process areas in product and service development, Decision Analysis and Resolution (DAR), Integrated Project Management (IPM), Organizational Process Definition (OPD), Organizational Process Focus (OPF), Organizational Training (OT), Product Integration (PI), Requirements Development (RD), Risk Management (RSKM), Technical Solution (TS), Validation (VAL), and Verification (VER).'
+    },
+    {
+        year: '2019',
+        title: 'Global Approval: ISO 27001',
+        description: 'We achieved ISO 27001 certification for international standard for information security.'
     },
     {
         year: '2018',
-        title: 'Global Approval: ISO 27001',
-        description: 'Achieved ISO 27001 certification, the international standard for information security.',
-        image: '/images/office-hero.jpg'
+        title: 'Getting Future Ready: IOT',
+        description: 'SSL Wireless has started building an Internet of Things (IoT) lab and growing capabilities in IoT, Artificial Intelligence, and Machine Learning. We have rebranded the existing card-on-file platform as Easy Checkout and started a promotion campaign called Save & Save by partnering with Visa. This has resulted in us winning awards from Mastercard and the BASIS National ICT Award.'
     },
     {
         year: '2017',
-        title: 'Digital Marketing & Global Expansion',
-        description: 'Launched 360-degree digital marketing wing and deployed "FastPay" mobile wallet in Kurdistan, Iraq.',
-        image: '/images/news-1.jpg'
+        title: 'Introduction of Digital Marketing Solutions & working with international organizations',
+        description: 'We launched a 360-degree digital marketing wing. Launched an own developed Digital Wallet/Mobile Wallet platform named ‘FastPay’ in Kurdistan, Iraq, exporting a digital wallet app to a foreign country for the first time in Bangladesh. Developed an Indian Visa Processing Fee Payment System (web & mobile app) for the Indian Visa Application Centre (IVAC). Developed bill collection apps and setup KIOSK for complaint management for a Utility Biller along with a Smart Meter Top-Up app for DESCO. In 2017, SSL also received PCI DSS Version 3.2 ‘Level 1’ Service Provider compliance certification. We also started and launched our Card-on-File services along with QR Payments, another first in the country. Won the Champion Award for DESCO Mobile App and SSLCOMMERZ.'
     },
     {
         year: '2016',
-        title: 'PSO License from Central Bank',
-        description: 'Received Payment Systems Operator (PSO) license from Bangladesh Bank.',
-        image: '/images/sslcommerz.png'
+        title: 'PSO license from the central bank',
+        description: 'Received the Payment Systems Operator (PSO) license from the central bank of Bangladesh. Started to provide cybersecurity tools to clients in the banking and financial industry. The same year, the DESCO mobile app went live, which is the first-ever online bill collection and complaint management app for any utility biller in Bangladesh.'
+    },
+    {
+        year: '2015',
+        title: 'Signed with VISA',
+        description: 'Added many more large enterprises to SSLCOMMERZ. Besides, SSL got connected to a few more Utility billers to provide Utility Bill Payment Solutions to banks. Signed a partnership with VISA, the world’s number one payment technology provider, for www.easy.com.bd to promote e-commerce in Bangladesh, offering a 5% bonus for any Visa card.'
+    },
+    {
+        year: '2013',
+        title: 'Helping businesses grow online',
+        description: 'Became the largest acquirer of merchants and payment channels through SSLCOMMERZ and launched first-time MT (subscription) services with one of the largest operators and TV channels, along with embedded VAS apps for handset companies.'
+    },
+    {
+        year: '2012',
+        title: 'E-Ticketing',
+        description: 'Launched BPL E-Ticketing at www.easy.com.bd and signed a partnership with FieldEz for a field force tracking solution, providing Sales Tracking Service for mobile handset companies. Started connecting banks to its ‘Virtual Recharge (VR)’ platform with a set of easy-to-integrate APIs.'
+    },
+    {
+        year: '2011',
+        title: 'Virtual Recharge',
+        description: 'Brought a virtual recharge platform for banks and launched the first online recharge platform, www.easy.com.bd in Bangladesh, and also started to provide field force automation solutions.'
     },
     {
         year: '2010',
-        title: 'Revolutionizing Payment Gateways',
-        description: 'Launched SSLCOMMERZ, the first online payment gateway in Bangladesh.',
-        image: '/images/event-1.jpg'
+        title: 'Changing the landscape of technology integration',
+        description: 'Launched the first online payment gateway platform called “SSLCOMMERZ” and mobile airtime recharge service with a bank for two mobile network operators, another first in Bangladesh.'
+    },
+    {
+        year: '2009',
+        title: 'Voyage towards disruptive innovation',
+        description: 'Launched the first news-on-demand portal, SMS Insurance, the first mobile banking application in Bangladesh, masking SMS, and brought the world’s leader in digital security, VeriSign Inc., to Bangladesh.'
+    },
+    {
+        year: '2008',
+        title: 'Realization of the dream into reality',
+        description: 'Launched the first shortcode-based SMS banking platform, which became a popular choice of banks in reaching out to customers. We also became a media and content aggregator by launching IVR News services, also a first in the country.'
+    },
+    {
+        year: '2007',
+        title: 'The beginning of a budding dream',
+        description: 'In the year 2007, Software Shop Limited revamped as SSL Wireless and started focusing on the domestic software development and telecommunication VAS business. Within a few years, SSL started focusing on the development of fintech services.'
     },
     {
         year: '1999',
-        title: 'A Dream Becomes Reality',
-        description: 'Software Shop Limited started its journey as an associated company of Concorde Garments.',
-        image: '/images/company-hero-new.jpg'
+        title: 'A dream becomes Software Shop Limited',
+        description: 'Software Shop Limited started its journey in 1999 as an associated company of Concorde Garments, starting as a franchisee of Aptech, the leading Indian IT education company.'
     }
 ]
-
 
 const pillars = [
     {
@@ -65,21 +103,39 @@ const pillars = [
     }
 ]
 
-const values = [
+const visionMission = [
     {
         title: 'Our Vision',
-        description: 'To be the leader in helping organizations improve their competitiveness by providing the best-in-class solutions.',
+        description: 'To be the most trusted operator of digital infrastructure in Bangladesh — and one of the most respected technology companies coming out of South Asia.',
         icon: 'lightbulb'
     },
     {
         title: 'Our Mission',
-        description: 'To be the provider of best-in-class value added services and digital marketing services to the citizens and organizations in Bangladesh.',
+        description: 'To build and operate the platforms that let Bangladesh’s banks, businesses and citizens transact with security, speed and confidence — and to extend that infrastructure beyond our borders.',
         icon: 'rocket'
+    }
+]
+
+const coreValues = [
+    {
+        title: 'Trust before scale',
+        description: 'We work in regulated sectors. Trust is the prerequisite, not the prize.',
+        icon: 'shield'
     },
     {
-        title: 'Our Values',
-        description: 'Focus on customer needs, commit to excellence, and create a positive environment for all.',
-        icon: 'trophy'
+        title: 'Build what lasts',
+        description: 'Infrastructure outlives launch announcements. We optimise for the next decade, not the next demo.',
+        icon: 'innovation'
+    },
+    {
+        title: 'Stay neutral',
+        description: 'We don’t compete with our customers. Our value comes from being the layer that connects them.',
+        icon: 'global'
+    },
+    {
+        title: 'Earn the licence',
+        description: 'We treat every regulator, audit and certification as a chance to raise our internal bar — not a hurdle to clear.',
+        icon: 'shield'
     }
 ]
 
@@ -130,12 +186,12 @@ export default function AboutUsPage() {
                             <div className="h-px w-20 bg-blue-900/10"></div>
                         </div>
 
-                        <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
-                            About <br />
-                            <span className="text-blue-900">SSL Wireless.</span>
+                        <h1 className="text-4xl md:text-7xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
+                            Twenty-five years of building <br />
+                            <span className="text-blue-900">Bangladesh’s digital backbone.</span>
                         </h1>
                         <p className="text-2xl text-slate-500 max-w-4xl leading-relaxed font-light text-balance mb-12">
-                            Founded in Bangladesh, SSL Wireless has spent over two decades building and operating mission-critical digital platforms in regulated environments. Our focus is long-term infrastructure — designed for scale, trust, and national impact.
+                            Founded in 1999, SSL Wireless has spent over two decades building and operating mission-critical digital platforms in regulated environments. Our focus is long-term infrastructure — designed for scale, trust, and national impact.
                         </p>
                     </motion.div>
                 </div>
@@ -146,10 +202,10 @@ export default function AboutUsPage() {
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
                         {[
-                            { label: 'Enterprise Services', value: '90+' },
-                            { label: 'Banking Partners', value: '52+' },
-                            { label: 'Corporate Clients', value: '3,500+' },
-                            { label: 'Ecommerce Merchants', value: '10,000+' }
+                            { label: 'Banks & Financial Institutions', value: '60+' },
+                            { label: 'Merchants on SSLCOMMERZ', value: '10,000+' },
+                            { label: 'Corporate Clients.', value: '3,500+' },
+                            { label: 'Years operating history', value: '25+' }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
@@ -186,7 +242,7 @@ export default function AboutUsPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="group p-12 rounded-[2.5rem] bg-white border border-slate-100 hover:shadow-[0_48px_96px_-24px_rgba(15,23,42,0.12)] transition-all duration-500"
+                                className="group p-12 rounded-[2.5rem] bg-white border border-slate-100 hover:shadow-[0_48px_96px_-24px_rgba(15,23_42,0.12)] transition-all duration-500"
                             >
                                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center shadow-sm mb-10 group-hover:scale-110 group-hover:bg-blue-900 group-hover:text-white transition-all duration-500 text-blue-900">
                                     <Icon name={pillar.icon} className="w-8 h-8" />
@@ -205,26 +261,63 @@ export default function AboutUsPage() {
             <section className="py-40 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.02),transparent)]"></div>
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                    <div className="grid lg:grid-cols-3 gap-8">
-                        {values.map((item, index) => (
+                    <div className="text-center mb-24">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Strategic Intent</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight">Mission & Vision.</h2>
+                    </div>
+                    <div className="grid lg:grid-cols-2 gap-12">
+                        {visionMission.map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="relative p-10 rounded-[2.5rem] bg-slate-900 text-white overflow-hidden group"
+                                className="relative p-12 lg:p-16 rounded-[2.5rem] bg-slate-900 text-white overflow-hidden group"
                             >
                                 <div className="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="relative z-10">
-                                    <div className="mb-8 p-4 bg-white/5 border border-white/10 rounded-2xl inline-block group-hover:bg-blue-400 group-hover:text-blue-900 transition-all duration-500">
-                                        <Icon name={item.icon} className="w-8 h-8" />
+                                    <div className="mb-10 p-5 bg-white/5 border border-white/10 rounded-2xl inline-block group-hover:bg-blue-400 group-hover:text-blue-900 transition-all duration-500">
+                                        <Icon name={item.icon} className="w-10 h-10" />
                                     </div>
-                                    <h3 className="text-3xl font-bold mb-6 tracking-tight">{item.title}</h3>
-                                    <p className="text-slate-400 font-light leading-relaxed group-hover:text-white transition-colors">
+                                    <h3 className="text-4xl font-bold mb-8 tracking-tight text-white">{item.title}</h3>
+                                    <p className="text-slate-300 text-xl font-light leading-relaxed group-hover:text-white transition-colors">
                                         {item.description}
                                     </p>
                                 </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 4b. Core Values Section - Premium Light Theme */}
+            <section className="py-40 bg-[#F8FAFC] relative overflow-hidden border-y border-slate-200/60">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+                    <div className="text-center mb-24">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Foundational Principles</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight">Our Core Values.</h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {coreValues.map((value, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="p-10 bg-white border border-slate-200/60 rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 group"
+                            >
+                                <div className="w-14 h-14 bg-slate-50 text-blue-900 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-900 group-hover:text-white transition-all duration-500 shadow-sm border border-slate-100">
+                                    <Icon name={value.icon} className="w-7 h-7" />
+                                </div>
+                                <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{value.title}</h4>
+                                <p className="text-slate-500 font-light leading-relaxed">
+                                    {value.description}
+                                </p>
                             </motion.div>
                         ))}
                     </div>
@@ -316,61 +409,61 @@ export default function AboutUsPage() {
                 </div>
             </section>
 
-            {/* 7. History & Milestones Timeline */}
-            <section className="py-40 bg-white">
+            {/* 7. History & Milestones Timeline - Central Connective Design */}
+            <section className="py-40 bg-white overflow-hidden">
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                    <div className="text-center mb-24">
-                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Journey</span>
+                    <div className="text-center mb-32">
+                        <span className="inline-block text-blue-900 font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Corporate Evolution</span>
                         <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight mb-6">
                             History & <span className="text-blue-900">Milestones.</span>
                         </h2>
                         <p className="text-xl text-slate-500 max-w-2xl mx-auto font-light">
-                            Two decades of pioneering innovation and institutional trust-building across Bangladesh's digital landscape.
+                            A legacy of institutional trust and digital innovation, spanning over two decades of Bangladesh's technological landscape.
                         </p>
                     </div>
 
-                    <div className="space-y-32">
-                        {milestones.map((milestone, index) => {
-                            const isEven = index % 2 === 0
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.7, delay: index * 0.1 }}
-                                    className={`grid lg:grid-cols-2 gap-16 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}
-                                >
-                                    {/* Image Side */}
-                                    <div className={`relative ${!isEven ? 'lg:order-2' : ''}`}>
-                                        <div className="relative h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                                            <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                                            <Image
-                                                src={milestone.image}
-                                                alt={milestone.title}
-                                                fill
-                                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                            />
-                                        </div>
-                                        {/* Year Badge */}
-                                        <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-900 rounded-full flex items-center justify-center shadow-2xl">
-                                            <span className="text-white font-bold text-xl">{milestone.year}</span>
-                                        </div>
-                                    </div>
+                    <div className="relative">
+                        {/* Central Vertical Line - Desktop */}
+                        <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-1/2"></div>
 
-                                    {/* Content Side */}
-                                    <div className={!isEven ? 'lg:order-1' : ''}>
-                                        <div className="w-12 h-1 bg-blue-900 mb-8"></div>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight">
-                                            {milestone.title}
-                                        </h3>
-                                        <p className="text-lg text-slate-500 leading-relaxed font-light">
-                                            {milestone.description}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            )
-                        })}
+                        <div className="space-y-16 md:space-y-32 relative">
+                            {milestones.map((milestone, index) => {
+                                const isEven = index % 2 === 0
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.7, delay: index * 0.05 }}
+                                        className={`flex flex-col md:flex-row items-start md:items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
+                                    >
+                                        {/* Content Side */}
+                                        <div className="w-full md:w-5/12 pl-20 md:pl-0">
+                                            <div className={`p-8 md:p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group ${isEven ? 'md:text-right' : 'md:text-left text-left'}`}>
+                                                <div className={`w-12 h-1 bg-blue-900/10 mb-6 group-hover:bg-blue-900 transition-colors ${isEven ? 'md:ml-auto' : ''}`}></div>
+                                                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors tracking-tight">
+                                                    {milestone.title}
+                                                </h3>
+                                                <p className="text-lg text-slate-500 leading-relaxed font-light group-hover:text-slate-600 transition-colors">
+                                                    {milestone.description}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Year Marker Side */}
+                                        <div className="absolute left-0 md:relative md:left-auto flex items-center justify-center w-16 md:w-2/12">
+                                            <div className="z-10 w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-slate-100 rounded-full flex items-center justify-center shadow-xl group-hover:border-blue-900 group-hover:bg-blue-900 transition-all duration-500">
+                                                <span className="text-blue-900 group-hover:text-white font-bold text-lg md:text-xl transition-colors">{milestone.year}</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Spacer */}
+                                        <div className="hidden md:block md:w-5/12"></div>
+                                    </motion.div>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             </section>

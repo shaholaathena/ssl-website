@@ -44,13 +44,13 @@ export default function BeyondPayments() {
                             Value-Added Services
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-6">
-                            Beyond Payments: Digital Services for MSMEs
+                            Built in Bangladesh.<br />Designed to go global.
                         </h2>
                         <div className="h-1 w-20 bg-blue-900"></div>
                     </div>
                     <div className="flex-1">
                         <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                            Payments are only one part of running a business. SSL provides value-added digital services that help MSMEs operate, communicate, and grow — even beyond financial transactions.
+                            SSL Wireless was the first Bangladeshi software company to export a digital wallet platform — FastPay, deployed in Kurdistan. We continue to partner with global networks including Visa, Mastercard, UnionPay, AWS and SAP, and are actively building the cross-border infrastructure that connects Bangladesh’s remitters, merchants and banks to the rest of the world.
                         </p>
                     </div>
                 </div>

@@ -3,11 +3,13 @@
 import { motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ContactModal from '@/components/ContactModal'
+import { useState } from 'react'
 
 const certifications = [
     {
         name: "PCI DSS Level 1",
-        version: "v4.0 Certified",
+        version: "v4.0.1 Certified",
         description: "The highest level of security standard for organizations that handle branded credit cards from major card schemes.",
         issuer: "PCI Security Standards Council"
     },
@@ -20,6 +22,30 @@ const certifications = [
     {
         name: "ISO 9001:2015",
         version: "QMS Certified",
+        description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
+        issuer: "International Organization for Standardization"
+    },
+    {
+        name: "CMMI-DEV Level 3",
+        version: "",
+        description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
+        issuer: "International Organization for Standardization"
+    },
+    {
+        name: "Payment System Operator (PSO) — licensed by Bangladesh Bank",
+        version: "",
+        description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
+        issuer: "International Organization for Standardization"
+    },
+    {
+        name: "White Label Merchant Acquirer (WLMA) — licensed by Bangladesh Bank",
+        version: "",
+        description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
+        issuer: "International Organization for Standardization"
+    },
+    {
+        name: "Telecommunication Value-Added Services (TVAS) provider — registered with BTRC",
+        version: "",
         description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
         issuer: "International Organization for Standardization"
     }
@@ -44,6 +70,7 @@ const compliancePillars = [
 ]
 
 export default function CompliancePage() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
     return (
         <main className="min-h-screen bg-white">
             <Header />
@@ -77,7 +104,7 @@ export default function CompliancePage() {
                             <span className="text-blue-900">Compliance.</span>
                         </h1>
                         <p className="text-2xl text-slate-500 max-w-3xl leading-relaxed font-light text-balance">
-                            Hardened financial infrastructure architected for global institutional scrutiny. We deploy a multi-layered governance framework that simplifies sovereign regulation.
+                            Banks, regulators and enterprise customers don’t take security on trust — and neither do we. SSL Wireless operates a multi-layered governance framework, independently audited and continuously tested.
                         </p>
                     </motion.div>
                 </div>
@@ -86,11 +113,11 @@ export default function CompliancePage() {
             {/* 2. Foundational Standards - Premium Certification Strip */}
             <div className="relative z-20 -mt-16">
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                    <div className="grid md:grid-cols-3 gap-6 bg-white/80 backdrop-blur-xl p-3 rounded-2xl shadow-[0_32px_64px_-16px_rgba(15,23,42,0.1)] border border-white">
+                    <div className="flex flex-wrap justify-center gap-6 bg-white/80 backdrop-blur-xl p-3 rounded-2xl shadow-[0_32px_64px_-16px_rgba(15,23,42,0.1)] border border-white pb-20">
                         {certifications.map((cert, idx) => (
                             <motion.div
                                 key={idx}
-                                className="group relative bg-[#0F172A] p-8 rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-1"
+                                className="group relative bg-[#0F172A] p-8 rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-1 w-full md:w-[calc(33.33%-1rem)]"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.4 + (idx * 0.1) }}
@@ -114,12 +141,13 @@ export default function CompliancePage() {
             </div>
 
             {/* 3. The Digital Governance Protocols - Luxury Content Hub */}
+            {/*
             <section className="py-40 bg-white">
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                     <div className="flex flex-col gap-48">
                         {compliancePillars.map((pillar, idx) => (
                             <div key={idx} className="grid lg:grid-cols-12 gap-24 items-start">
-                                {/* Left Content */}
+                                {/* Left Content 
                                 <div className="lg:col-span-5 lg:sticky lg:top-40">
                                     <div className="flex items-center gap-4 mb-8">
                                         <span className="text-[11px] font-bold text-blue-900 uppercase tracking-[0.5em]">Protocol {idx + 1}</span>
@@ -141,7 +169,7 @@ export default function CompliancePage() {
                                     </div>
                                 </div>
 
-                                {/* Right Visual - High Fidelity Workspace */}
+                                {/* Right Visual - High Fidelity Workspace *
                                 <div className="lg:col-span-7">
                                     <motion.div
                                         className="relative rounded-3xl overflow-hidden bg-[#0F172A] shadow-[0_48px_96px_-24px_rgba(15,23,42,0.25)] border border-slate-800"
@@ -149,7 +177,7 @@ export default function CompliancePage() {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true, margin: "-100px" }}
                                     >
-                                        {/* Dashboard Header */}
+                                        {/* Dashboard Header *
                                         <div className="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 p-6 flex items-center justify-between">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex gap-1.5">
@@ -169,11 +197,11 @@ export default function CompliancePage() {
                                         </div>
 
                                         <div className="p-16 aspect-[16/10] flex items-center justify-center relative bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
-                                            {/* Technical Glass Panel */}
+                                            {/* Technical Glass Panel *
                                             <div className="relative w-full max-w-md h-full flex flex-col items-center justify-center">
                                                 <div className="absolute inset-0 bg-blue-500/5 blur-[100px] rounded-full"></div>
 
-                                                {/* Main Core Graphic */}
+                                                {/* Main Core Graphic *
                                                 <div className="relative w-48 h-48">
                                                     <div className="absolute inset-0 border border-blue-500/20 rounded-full animate-spin-slow"></div>
                                                     <div className="absolute inset-4 border border-blue-400/40 border-t-transparent rounded-full animate-spin-reverse-slow"></div>
@@ -184,7 +212,7 @@ export default function CompliancePage() {
                                                     </div>
                                                 </div>
 
-                                                {/* Floatings Data Panels */}
+                                                {/* Floatings Data Panels *
                                                 <div className="absolute top-0 right-0 p-4 bg-slate-800/80 backdrop-blur-xl border border-slate-700/50 rounded-xl shadow-2xl scale-75 lg:scale-100">
                                                     <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">Enc_Status</div>
                                                     <div className="text-xl font-mono text-white">TLS 1.3</div>
@@ -196,7 +224,7 @@ export default function CompliancePage() {
                                             </div>
                                         </div>
 
-                                        {/* Activity Stream */}
+                                        {/* Activity Stream 
                                         <div className="bg-slate-900 px-8 py-6 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500">
                                             <div className="flex items-center gap-6">
                                                 <div className="flex gap-2">
@@ -216,6 +244,7 @@ export default function CompliancePage() {
                     </div>
                 </div>
             </section>
+            */}
 
             {/* 4. The Integrity Grid - Security Depth */}
             <section className="py-40 bg-[#0F172A] relative overflow-hidden">
@@ -229,16 +258,17 @@ export default function CompliancePage() {
                         <p className="text-slate-400 text-xl max-w-2xl mx-auto font-light">Independent validation is a continuous process, not a periodic event. Our systems are scanned daily and audited quarterly.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-4 gap-4">
+                    <div className="flex flex-wrap justify-center gap-4">
                         {[
-                            { label: "Internal Audits", val: "Monthly", color: "blue" },
-                            { label: "External Audits", val: "Quarterly", color: "emerald" },
-                            { label: "Pen-Testing", val: "Continuous", color: "purple" },
-                            { label: "Vuln. Scans", val: "Daily", color: "sky" }
+                            { label: "Vulnerability scans", val: "Daily", color: "blue" },
+                            { label: "Internal Audits", val: "Monthly", color: "emerald" },
+                            { label: "External Audits", val: "Quartely", color: "purple" },
+                            { label: "Pen-Testing", val: "Continuous", color: "sky" },
+                            { label: "PCI DSS, ISO 27001 re-certification", val: "Annually", color: "sky" }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
-                                className="p-10 rounded-3xl bg-slate-800/30 border border-slate-700/50 hover:bg-slate-800/50 transition-all group"
+                                className="p-10 rounded-3xl bg-slate-800/30 border border-slate-700/50 hover:bg-slate-800/50 transition-all group w-full md:w-[calc(33.33%-1rem)]"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
@@ -260,22 +290,27 @@ export default function CompliancePage() {
 
                         <div className="relative z-10 px-12 lg:px-24 w-full flex flex-col md:flex-row items-center justify-between gap-16">
                             <div className="max-w-2xl">
-                                <h4 className="text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">Banking-Grade Access <br /><span className="text-blue-400">for Regulators & Partners</span></h4>
+                                <h4 className="text-3xl lg:text-4xl font-bold text-white mb-8 leading-tight tracking-tight">For regulators, auditors and partners:  <br /><span className="text-blue-400">deeper documentation</span></h4>
                                 <p className="text-slate-400 text-xl leading-relaxed font-light">
-                                    Requiring deep-tech SOC reports or audit packages? Access our secure compliance ecosystem.
+                                    including SOC reports, AOCs and audit packages — is available on request under NDA.
                                 </p>
                             </div>
                             <div className="flex flex-col items-center gap-6">
-                                <motion.a
-                                    href="/contact?dept=compliance"
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
                                     className="px-12 py-6 bg-white text-slate-900 text-lg font-bold rounded-2xl shadow-2xl hover:bg-blue-50 transition-all whitespace-nowrap"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.98 }}
                                 >
-                                    Access Compliance Vault
-                                </motion.a>
-                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em]">Credentials Required</span>
+                                    Request compliance documentation
+                                </button>
+                                {/* <span className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em]">Credentials Required</span> */}
                             </div>
+
+                            <ContactModal
+                                isOpen={isModalOpen}
+                                onClose={() => setIsModalOpen(false)}
+                                title="Compliance Documentation Request"
+                                type="compliance"
+                            />
                         </div>
                     </div>
                 </div>

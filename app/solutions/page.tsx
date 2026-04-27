@@ -3,14 +3,17 @@
 import { motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import GlobalCTA from '@/components/GlobalCTA'
+import ContactModal from '@/components/ContactModal'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const solutions = [
     {
         id: 'banks',
         title: 'Banks & Financial Institutions',
-        subtitle: 'Modernizing Core Banking connectivity without the legacy overhaul.',
-        enablement: 'We provide the middleware and channel banking layers that sit on top of your CBS. From SMS alerts (A2P) to App-based banking and payment switching, we act as the agile innovation layer.',
+        subtitle: 'The agile innovation layer on top of your core.',
+        enablement: "Replacing a core banking system takes years. SSL’s middleware lets you ship new digital channels — SMS banking, app-based banking, payment switching, OTP and alert infrastructure — in weeks, working with the CBS you already have.\n\nUse cases: SMS & app banking, payment switching, bill payments, real-time alerts, regulator reporting, virtual recharge.",
         stats: [
             { label: 'Problem', value: 'Legacy Silos' },
             { label: 'Impact', value: 'Agile Innovation' },
@@ -33,7 +36,7 @@ const solutions = [
         id: 'enterprises',
         title: 'Enterprises & FMCGs',
         subtitle: 'Closing the visibility gap in deep-tier supply chains.',
-        enablement: 'Our Hercules platform digitizes the entire secondary distribution chain. Field forces capture orders digitally, and retailers pay via digital rails, ensuring real-time stock visibility and automated reconciliation.',
+        enablement: 'Most distribution chains are still run on paper, WhatsApp and trust. Hercules digitises the entire secondary chain — orders, deliveries, collections, reconciliation — giving commercial leaders real-time visibility and a clean audit trail.\n\nUse cases: field-force automation, digital order capture, automated reconciliation, distributor performance management, retailer health analytics.',
         stats: [
             { label: 'Problem', value: 'Cash Risks' },
             { label: 'Impact', value: 'Real-time Visibility' },
@@ -50,8 +53,8 @@ const solutions = [
     {
         id: 'msmes',
         title: 'MSMEs & Merchants',
-        subtitle: 'Democratizing access to digital payments and tools.',
-        enablement: 'SSLCOMMERZ offers plug-and-play payment links, invoicing tools, and simple inventory management, allowing any merchant to start accepting digital payments in minutes.',
+        subtitle: 'Digital payments, in minutes.',
+        enablement: 'SSLCOMMERZ lets any business — from a one-person online boutique to a national retailer — accept digital payments across cards, mobile wallets and internet banking. Plug-and-play integration, plus the tools merchants actually use: invoicing, payment links, QR.\n\nUse cases: online checkout, in-store QR, payment links, invoicing, marketplace settlement, recurring payments.',
         stats: [
             { label: 'Problem', value: 'High Barrier to Entry' },
             { label: 'Impact', value: 'Instant Access' },
@@ -66,10 +69,26 @@ const solutions = [
         )
     },
     {
+        id: 'public',
+        title: 'Public Institutions',
+        subtitle: 'Citizen services, available 24/7.',
+        enablement: 'We integrate government services and utility billers with the country’s payment grid — so citizens can pay bills, top up meters and access services from their phones, at any hour, through whichever channel they prefer.\n\nUse cases: utility bill collection, prepaid meter top-ups, government fee payments, citizen-facing portals.',
+        stats: [
+            { label: 'Problem', value: 'Manual Queues' },
+            { label: 'Impact', value: '24/7 Availability' },
+            { label: 'Trust', value: 'National Utilities' }
+        ],
+        icon: (
+            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+        )
+    },
+    {
         id: 'agents',
-        title: 'Agent Networks',
-        subtitle: 'Bridging the last mile for financial services.',
-        enablement: 'Our Agent Banking stack empowers local retailers to act as human ATMs and service points. They manage liquidity and assist customers with bills, deposits, and transfers.',
+        title: 'Telecom & Media',
+        subtitle: 'Reach, scale, and value-added services.',
+        enablement: 'SSL was a founding partner of Bangladesh’s mobile VAS industry. Today we run content distribution, IVR and SMS-based services for telcos, broadcasters and content owners — and the recharge platforms that millions of subscribers use daily.\n\nUse cases: VAS content distribution, IVR services, SMS subscriptions, online airtime and data top-up.',
         stats: [
             { label: 'Problem', value: 'Rural Exclusion' },
             { label: 'Impact', value: 'Human ATMs' },
@@ -84,25 +103,10 @@ const solutions = [
             </svg>
         )
     },
-    {
-        id: 'public',
-        title: 'Public Institutions',
-        subtitle: 'Digitizing citizen services for transparency and speed.',
-        enablement: 'We integrate government utilities and services with the national payment grid, enabling 24/7 digital bill payment and instant service activation.',
-        stats: [
-            { label: 'Problem', value: 'Manual Queues' },
-            { label: 'Impact', value: '24/7 Availability' },
-            { label: 'Trust', value: 'National Utilities' }
-        ],
-        icon: (
-            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-        )
-    }
 ]
 
 export default function SolutionsPage() {
+    const [isMerchantModalOpen, setIsMerchantModalOpen] = useState(false)
     return (
         <main className="min-h-screen bg-white">
             <Header />
@@ -172,7 +176,7 @@ export default function SolutionsPage() {
                                         {solution.subtitle}
                                     </p>
 
-                                    <p className="text-slate-500 text-lg leading-relaxed mb-12 font-light line-clamp-3">
+                                    <p className="text-slate-500 text-lg leading-relaxed mb-12 font-light whitespace-pre-line">
                                         {solution.enablement}
                                     </p>
 
@@ -186,10 +190,18 @@ export default function SolutionsPage() {
                                         ))}
                                     </div>
 
-                                    <div className="absolute bottom-10 right-10 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                                        <a href={`/contact?sector=${solution.id}`} className="flex items-center gap-3 text-blue-900 font-bold text-sm">
+                                    <div className="absolute bottom-10 right-10 flex flex-col items-end gap-4">
+                                        <a href={`/contact?sector=${solution.id}`} className="flex items-center gap-3 text-blue-900 font-bold text-sm hover:translate-x-1 transition-transform">
                                             Sector Specialist <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                         </a>
+                                        {solution.id === 'msmes' && (
+                                            <button
+                                                onClick={() => setIsMerchantModalOpen(true)}
+                                                className="px-6 py-2 bg-blue-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/10"
+                                            >
+                                                Become a Merchant
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
 
@@ -212,7 +224,7 @@ export default function SolutionsPage() {
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-4 justify-center max-w-md">
-                                {['ISO 27001', 'PCI DSS', 'SOC 2', 'Central Bank Regulated', 'TLS 1.3 Encryption'].map((tag) => (
+                                {['ISO 27001', 'PCI DSS Level 1', 'PSO and WLAMA licensed by Bangladesh Bank', 'TLS 1.3 / AES-256'].map((tag) => (
                                     <div key={tag} className="px-6 py-3 rounded-xl border border-white/10 bg-white/5 text-white/70 text-[10px] font-bold uppercase tracking-widest backdrop-blur-md">
                                         {tag}
                                     </div>
@@ -223,28 +235,20 @@ export default function SolutionsPage() {
                 </div>
             </section>
 
-            {/* 4. CTA Section - Direct Access */}
-            <section className="py-40 bg-white">
-                <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
-                    <h2 className="text-5xl font-bold text-slate-900 mb-10 tracking-tight leading-tight">Ready to solve your sector's <br />toughest challenges?</h2>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <motion.a
-                            href="/contact"
-                            className="px-12 py-5 bg-blue-900 text-white font-bold rounded-xl shadow-xl shadow-blue-900/20 hover:bg-blue-800 transition-all"
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            Talk to an Industry Expert
-                        </motion.a>
-                        <motion.a
-                            href="/platforms"
-                            className="px-12 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl hover:bg-slate-50 transition-all"
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            Explore Infrastructure
-                        </motion.a>
-                    </div>
-                </div>
-            </section>
+            <GlobalCTA
+                title="Ready to solve your sector's toughest challenges?"
+                subtitle="Our specialist teams are ready to architect the solution your institution needs."
+                primaryLabel="Speak to our enterprise team"
+                secondaryLabel="Explore Infrastructure"
+                type="enterprise"
+            />
+
+            <ContactModal
+                isOpen={isMerchantModalOpen}
+                onClose={() => setIsMerchantModalOpen(false)}
+                title="Become a Merchant"
+                type="merchant"
+            />
 
             <Footer />
         </main>

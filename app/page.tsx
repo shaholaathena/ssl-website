@@ -9,6 +9,10 @@ import BeyondPayments from '@/components/BeyondPayments'
 import EcosystemDiagram from '@/components/EcosystemDiagram'
 import WhoWeServe from '@/components/WhoWeServe'
 import HomeAbout from '@/components/HomeAbout'
+import LogoWall from '@/components/LogoWall'
+import CaseStudies from '@/components/CaseStudies'
+import InnovationLab from '@/components/InnovationLab'
+import GlobalCTA from '@/components/GlobalCTA'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -21,9 +25,13 @@ export default function Home() {
       <TrustScale />
       <Products />
       <BeyondPayments />
+      <LogoWall />
+      <CaseStudies />
+      <InnovationLab />
       <EcosystemDiagram />
       <WhoWeServe />
       <HomeAbout />
+      <GlobalCTA />
       <Footer />
     </main>
   )

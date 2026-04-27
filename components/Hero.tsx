@@ -32,9 +32,9 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Powering Bangladesh’s <br />
+                The infrastructure behind <br />
                 <span className="text-blue-900 relative inline-block">
-                  Digital Financial Infrastructure
+                  Bangladesh’s digital economy
                   {/* Animated Underline */}
                   <motion.div
                     initial={{ width: 0 }}
@@ -51,8 +51,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-               Secure, regulated platforms enabling digital transformation, enterprise operations, and financial ecosystems at national scale. <br/>
-               We are empowering Industries & Communities through Digital Innovation. 
+                For 25 years, SSL Wireless has built and operated the regulated platforms that move money, messages and goods across Bangladesh — connecting every major bank, all four mobile network operators, and tens of thousands of businesses to the country’s digital rails.
               </motion.p>
 
               <motion.div

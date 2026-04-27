@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import GlobalCTA from '@/components/GlobalCTA'
 import Image from 'next/image'
 
 export default function PlatformsPage() {
@@ -10,49 +11,36 @@ export default function PlatformsPage() {
         {
             id: 'sslcommerz',
             name: 'SSLCOMMERZ',
-            header: 'The National Payment Rails',
+            header: 'The national payment rails.',
             tagline: 'Payments & Switching Infrastructure',
-            overview: 'The engine powering digital commerce in Bangladesh. SSLCOMMERZ provides the secure gateway, switching logic, and compliance framework required for national-scale payments.',
+            overview: 'Bangladesh’s first and largest payment gateway. The engine behind digital commerce for more than 10,000 merchants — from corner-store SMEs to government billers and listed corporates.',
             logo: '/images/sslcommerz-logo-v2.png',
             image: '/images/sslcommerz-v2.png',
             features: [
-                { title: 'Payments & Gateway', desc: ' Unified payment acceptance across cards, MFS, and internet banking.' },
-                { title: 'Switching & Routing', desc: 'Intelligent transaction routing for maximum success rates and redundancy.' },
-                { title: 'Merchant Enablement', desc: 'Tools for onboarding, reporting, and dispute management.' },
-                { title: 'Security & Compliance', desc: 'PCI DSS Level 1 certified infrastructure with advanced fraud detection.' }
-            ]
-        },
-        {
-            id: 'cashbaba',
-            name: 'CashBaba',
-            header: 'Financial Access for Everyone',
-            tagline: 'Digital Wallets & Agent Networks',
-            overview: 'A complete digital wallet and agent banking stack designed to extend financial access to the last mile.',
-            logo: '/images/cashbaba-logo-v2.png',
-            image: '/images/cashbaba-v2.png',
-            features: [
-                { title: 'Wallet Infrastructure', desc: 'White-label wallet cores for licensed PSPs and banks.' },
-                { title: 'Agent Networks', desc: 'Tools for agent management, liquidity, and OTC transactions.' },
-                { title: 'Financial Access', desc: 'Features enabling low-literacy user adoption and rural reach.' }
+                { title: 'Payment acceptance', desc: 'One integration, every major channel: cards, mobile financial services, internet banking, QR.' },
+                { title: 'Switching & routing', desc: 'Intelligent transaction routing engineered for high success rates and built-in redundancy.' },
+                { title: 'Merchant tools', desc: 'Plug-and-play onboarding, payment links, invoicing, refund and dispute management, real-time settlement reporting.' },
+                { title: 'Security & compliance', desc: 'PCI DSS Level 1, 3D Secure, machine-learning fraud detection, end-to-end encryption.' }
             ]
         },
         {
             id: 'hercules',
             name: 'Hercules',
-            header: 'Supply Chain Intelligence',
+            header: 'Supply chain intelligence, end to end',
             tagline: 'Enterprise Reconciliation & Distribution',
-            overview: 'Solving the complex backend challenges of large-scale supply chains. Hercules digitizes distribution visibility and automates financial reconciliation.',
+            overview: 'Solving the complex backend challenges of large-scale supply chains. Hercules gives FMCGs, distributors and enterprises real-time visibility from warehouse to dokan.',
             logo: '/images/hercules-logo-v2.png',
             image: '/images/hercules-v2.png',
             features: [
-                { title: 'Distribution Digitisation', desc: 'Real-time tracking of goods, orders, and field force activities.' },
-                { title: 'Payment Reconciliation', desc: 'Automated matching of invoices against digital and cash collections.' },
-                { title: 'Enterprise Operations', desc: 'ERP integrations and operational dashboards for decision support.' }
+                { title: 'Distribution digitisation', desc: 'Digital order capture, field-force tracking, real-time stock visibility across the distribution chain.' },
+                { title: 'Automated reconciliation', desc: 'Match invoices, digital collections and cash receipts in real time. Reduce costs and replace manual back-office work with a clean audit trail.' },
+                { title: 'Operational dashboards', desc: 'SKU-level performance, route productivity, retailer health — surfaced where commercial leaders make decisions.' },
+                { title: 'ERP-ready', desc: 'Built to integrate cleanly with SAP and other enterprise systems, not to replace them.' }
             ]
         },
         {
             id: 'messaging',
-            name: 'Messaging & VAS',
+            name: 'Messaging',
             header: 'Mission-Critical Comms',
             tagline: 'Notification & Utility Infrastructure',
             overview: 'The communication backbone for mission-critical alerts, OTPs, and utility services integration.',
@@ -96,11 +84,11 @@ export default function PlatformsPage() {
                         </div>
 
                         <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
-                            Product-Led <br />
-                            <span className="text-blue-900">Platforms.</span>
+                            Platforms built <br />
+                            <span className="text-blue-900">for national scale.</span>
                         </h1>
                         <p className="text-2xl text-slate-500 max-w-3xl leading-relaxed font-light text-balance">
-                            We build dedicated technical ecosystems for specific national infrastructure needs. Each platform is engineered for banking-grade scale, absolute compliance, and deep sector integration.
+                            We build dedicated technical ecosystems for specific national infrastructure needs. Each platform is engineered for bank-grade reliability, deep regulatory alignment, and interoperability with the institutions that matter.
                         </p>
                     </motion.div>
                 </div>
@@ -224,20 +212,13 @@ export default function PlatformsPage() {
                 ))}
             </div>
 
-            {/* Final CTA Strip */}
-            <section className="py-32 bg-white">
-                <div className="container mx-auto px-6 lg:px-12 max-w-5xl text-center">
-                    <h3 className="text-4xl font-bold text-slate-900 mb-8 tracking-tight">Looking for a specific platform integration?</h3>
-                    <div className="flex flex-wrap items-center justify-center gap-6">
-                        <a href="/contact" className="px-10 py-5 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-all shadow-xl shadow-blue-900/20">
-                            Speak to Technical Team
-                        </a>
-                        <a href="/solutions" className="px-10 py-5 bg-white border border-slate-200 text-slate-900 font-bold rounded-lg hover:bg-slate-50 transition-all">
-                            Explore Industry Solutions
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <GlobalCTA
+                title="Looking for a specific platform integration?"
+                subtitle="From national payment rails to enterprise supply chain tools, we have the infrastructure."
+                primaryLabel="Partner with us"
+                secondaryLabel="Explore Industry Solutions"
+                type="partner"
+            />
 
             <Footer />
         </main>

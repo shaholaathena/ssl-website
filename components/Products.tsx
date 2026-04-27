@@ -8,25 +8,19 @@ export default function Products() {
   const platforms = [
     {
       name: 'SSLCOMMERZ',
-      desc: 'Payments & Switching Infrastructure',
+      desc: 'Bangladesh’s first and largest payment gateway, licensed as a Payment System Operator by Bangladesh Bank. Powers digital commerce for more than 10,000 merchants.',
       type: 'Payment System Operator (PSO)',
       logo: '/images/sslcommerz-logo-v2.png'
     },
     {
-      name: 'CashBaba',
-      desc: 'Digital Wallets & Agent Networks',
-      type: 'Payment Service Provider (PSP)',
-      logo: '/images/cashbaba-logo-v2.png'
-    },
-    {
       name: 'Hercules',
-      desc: 'Enterprise Reconciliation & Distribution',
+      desc: 'Real-time visibility, digital order capture and automated payment reconciliation across deep supply chains.',
       type: 'Supply Chain Automation',
       logo: '/images/hercules-logo-v2.png'
     },
     {
       name: 'Messaging',
-      desc: 'Critical communication and real-time alert infrastructure',
+      desc: 'The communication backbone behind banking alerts, OTPs and utility services — with tier-1 connectivity to every mobile network operator in Bangladesh.',
       type: 'Enterprise Telecom',
       icon: (
         <svg className="w-8 h-8 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,9 +36,11 @@ export default function Products() {
 
         <div className="mb-16 border-b border-slate-200 pb-8">
           <h2 className="text-3xl font-bold text-slate-900">Core Financial Platforms</h2>
+          <p className="text-lg text-slate-500 leading-relaxed mt-5 font-semibold">Three platforms. One country. National scale.</p>
+          <p className="text-base text-slate-500 leading-relaxed mt-5 font-light">Each platform is purpose-built for a critical layer of Bangladesh’s digital economy — engineered for the volume, regulation and interoperability that national infrastructure demands.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-slate-200 border border-slate-200">
+        <div className="grid md:grid-cols-3 gap-px bg-slate-200 border border-slate-200">
           {platforms.map((platform, index) => (
             <div key={index} className="bg-white p-10 hover:bg-slate-50 transition-colors group">
               <div className="flex justify-between items-start mb-6">
@@ -68,9 +64,9 @@ export default function Products() {
 
               <h3 className="text-2xl font-bold text-slate-900 mb-2">{platform.name}</h3>
               <p className="text-slate-600 text-lg mb-8 max-w-sm">{platform.desc}</p>
-              <a href="#" className="text-blue-900 font-semibold text-sm border-b border-blue-900 pb-0.5 hover:text-blue-700 hover:border-blue-700 transition-colors">
+              {/* <a href="#" className="text-blue-900 font-semibold text-sm border-b border-blue-900 pb-0.5 hover:text-blue-700 hover:border-blue-700 transition-colors">
                 View Platform Interface
-              </a>
+              </a> */}
             </div>
           ))}
         </div>

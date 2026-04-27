@@ -7,9 +7,9 @@ export default function EcosystemDiagram() {
                 <div className="flex flex-col lg:flex-row gap-20 items-center">
 
                     <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-white mb-6">A Trusted Infrastructure Layer</h2>
+                        <h2 className="text-2xl font-bold text-white mb-6">A trusted infrastructure layer</h2>
                         <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                            SSL operations as a neutral infrastructure layer connecting banks, enterprises, MSMEs, agents, and public institutions. We provide the rails for secure, interoperable digital services.
+                            SSL operates as a neutral infrastructure layer connecting banks, enterprises, MSMEs, agents, and public institutions. We provide the rails for secure, interoperable digital services. SSL Wireless sits between the country’s banks, mobile operators, regulators and enterprises.
                         </p>
 
                         <div className="space-y-4">

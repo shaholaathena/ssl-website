@@ -29,7 +29,7 @@ const ecosystemLayers = [
     {
         title: "Digital Payment Schemes",
         description: "Full integration with international cards and domestic MFS providers to provide a borderless payment experience.",
-        partners: ["Visa", "Mastercard", "bKash", "Nagad", "Rocket"],
+        partners: ["Visa", "Mastercard", "UnionPay", "bKash", "Nagad", "Rocket"],
         icon: (
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="2" y="5" width="20" height="14" rx="2" />
@@ -67,8 +67,8 @@ export default function EcosystemPage() {
                         </div>
 
                         <h1 className="text-6xl md:text-9xl font-bold text-slate-900 mb-10 tracking-tighter leading-[0.9]">
-                            The Hub of <br />
-                            <span className="text-blue-900">Digital Bangladesh.</span>
+                            The hub of <br />
+                            <span className="text-blue-900">digital Bangladesh.</span>
                         </h1>
                         <p className="text-2xl text-slate-500 max-w-3xl leading-relaxed font-light text-balance">
                             Acting as the critical middleware layer between regulated banking, telecommunications, and digital commerce. We manage the "pipes" that power an entire nation.
@@ -160,7 +160,7 @@ export default function EcosystemPage() {
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                     <div className="text-center mb-20">
                         <span className="text-[11px] font-bold text-blue-900 uppercase tracking-[0.5em] mb-4 block">Ecosystem Nodes</span>
-                        <h3 className="text-5xl font-bold text-slate-900 tracking-tight">Seamless Connectivity Layers</h3>
+                        <h3 className="text-5xl font-bold text-slate-900 tracking-tight">Connectivity layers</h3>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -205,12 +205,12 @@ export default function EcosystemPage() {
 
                             <div className="grid grid-cols-2 gap-12">
                                 <div>
-                                    <div className="text-5xl font-bold text-white mb-2">500k+</div>
-                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Daily API Calls</div>
+                                    <div className="text-5xl font-bold text-white mb-2">80K+</div>
+                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Daily transaction volume</div>
                                 </div>
                                 <div>
-                                    <div className="text-5xl font-bold text-white mb-2">99.9%</div>
-                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Uptime Record</div>
+                                    <div className="text-5xl font-bold text-white mb-2">99.97%</div>
+                                    <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Uptime SLA</div>
                                 </div>
                             </div>
                         </div>
@@ -218,10 +218,8 @@ export default function EcosystemPage() {
                         <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-12">
                             <div className="space-y-8">
                                 {[
-                                    { label: "Transaction Latency", value: "< 200ms", color: "text-emerald-400" },
-                                    { label: "Network Failover", value: "Automatic Tier-3", color: "text-white" },
+                                    { label: "Average transaction latency", value: "< 4s", color: "text-emerald-400" },
                                     { label: "Data Encryption", value: "AES-256 / RSA-4096", color: "text-white" },
-                                    { label: "Regulatory Reporting", value: "Real-time Auditing", color: "text-blue-400" }
                                 ].map((stat, i) => (
                                     <div key={i} className="flex items-center justify-between py-4 border-b border-white/10 last:border-0">
                                         <span className="text-slate-400 text-sm font-light uppercase tracking-widest">{stat.label}</span>
