@@ -151,10 +151,6 @@ export default function PlatformsPage() {
                                         ))}
                                     </div>
 
-                                    <a href="/contact" className="inline-flex items-center px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-sm hover:bg-blue-900 transition-all shadow-xl shadow-slate-900/10">
-                                        Technical Specifications
-                                        <svg className="w-4 h-4 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                    </a>
                                 </div>
 
                                 {/* Visual Column - Premium Technical Container */}

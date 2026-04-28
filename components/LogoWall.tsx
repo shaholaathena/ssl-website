@@ -26,8 +26,11 @@ const schemeLogos = [
 ]
 
 const enterpriseLogos = [
-    { name: "SAP", src: "/images/enterprise/sap.jpg" },
-    { name: "AWS", src: "/images/enterprise/aws.jpg" },
+    { name: "IBM", src: "/images/enterprise/IBM.jpg" },
+    { name: "BPC", src: "/images/enterprise/bpc.jpg" },
+    { name: "DigiCert", src: "/images/enterprise/digicert.jpg" },
+    { name: "GlobalSign", src: "/images/enterprise/globalsign.jpg" },
+    { name: "Palo Alto Networks", src: "/images/enterprise/paloalto.jpg" },
 ]
 
 export default function LogoWall() {
