@@ -48,6 +48,12 @@ const certifications = [
         version: "",
         description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
         issuer: "International Organization for Standardization"
+    },
+    {
+        name: "International Payment & Recharge Service (IPRS) provider — registered with BTRC",
+        version: "",
+        description: "Standard for quality management systems ensuring consistent delivery of services that meet regulatory requirements.",
+        issuer: "International Organization for Standardization"
     }
 ]
 

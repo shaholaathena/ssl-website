@@ -147,19 +147,18 @@ export default function SolutionsPage() {
             {/* 2. Sector Hub Grid - Refined Luxury Styling */}
             <section className="py-40 bg-white relative">
                 <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {solutions.map((solution, idx) => (
+                    {/* First 2 cards — 50/50 */}
+                    <div className="grid md:grid-cols-2 gap-10 mb-10">
+                        {solutions.slice(0, 2).map((solution, idx) => (
                             <motion.div
                                 key={solution.id}
-                                className={`group relative rounded-[2.5rem] overflow-hidden border border-slate-100 bg-white transition-all duration-700 hover:shadow-[0_48px_96px_-24px_rgba(15,23,42,0.12)] hover:-translate-y-3 ${idx === 0 ? 'md:col-span-2 lg:col-span-2' : ''
-                                    }`}
+                                className="group relative rounded-[2.5rem] overflow-hidden border border-slate-100 bg-white transition-all duration-700 hover:shadow-[0_48px_96px_-24px_rgba(15,23,42,0.12)] hover:-translate-y-3"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
                             >
                                 <div className="p-12 lg:p-14 flex flex-col h-full relative z-10">
-                                    {/* Sector Label / Protocol Style */}
                                     <div className="flex items-center gap-4 mb-16">
                                         <div className="w-16 h-16 bg-blue-900 text-white flex items-center justify-center rounded-2xl shadow-xl group-hover:scale-110 transition-all duration-700">
                                             {solution.icon}
@@ -167,20 +166,15 @@ export default function SolutionsPage() {
                                         <div className="h-px flex-1 bg-slate-100"></div>
                                         <span className="text-[10px] font-bold text-blue-900/40 uppercase tracking-[0.3em]">Sector 0{idx + 1}</span>
                                     </div>
-
-                                    {/* Content */}
                                     <h3 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight group-hover:text-blue-900 transition-colors">
                                         {solution.title}
                                     </h3>
                                     <p className="text-xl text-blue-900/60 font-medium mb-8 leading-snug">
                                         {solution.subtitle}
                                     </p>
-
                                     <p className="text-slate-500 text-lg leading-relaxed mb-12 font-light whitespace-pre-line">
                                         {solution.enablement}
                                     </p>
-
-                                    {/* Dashboard Stat Snippets */}
                                     <div className="mt-auto grid grid-cols-2 gap-8 pt-10 border-t border-slate-50">
                                         {solution.stats.slice(0, 2).map((stat, sIdx) => (
                                             <div key={sIdx}>
@@ -189,23 +183,49 @@ export default function SolutionsPage() {
                                             </div>
                                         ))}
                                     </div>
+                                </div>
+                                <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-900/[0.02] rounded-full group-hover:scale-150 transition-transform duration-1000 -z-0"></div>
+                            </motion.div>
+                        ))}
+                    </div>
 
-                                    <div className="absolute bottom-10 right-10 flex flex-col items-end gap-4">
-                                        <a href={`/contact?sector=${solution.id}`} className="flex items-center gap-3 text-blue-900 font-bold text-sm hover:translate-x-1 transition-transform">
-                                            Sector Specialist <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                        </a>
-                                        {solution.id === 'msmes' && (
-                                            <button
-                                                onClick={() => setIsMerchantModalOpen(true)}
-                                                className="px-6 py-2 bg-blue-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/10"
-                                            >
-                                                Become a Merchant
-                                            </button>
-                                        )}
+                    {/* Remaining 3 cards — equal thirds */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {solutions.slice(2).map((solution, idx) => (
+                            <motion.div
+                                key={solution.id}
+                                className="group relative rounded-[2.5rem] overflow-hidden border border-slate-100 bg-white transition-all duration-700 hover:shadow-[0_48px_96px_-24px_rgba(15,23,42,0.12)] hover:-translate-y-3"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                            >
+                                <div className="p-12 lg:p-14 flex flex-col h-full relative z-10">
+                                    <div className="flex items-center gap-4 mb-16">
+                                        <div className="w-16 h-16 bg-blue-900 text-white flex items-center justify-center rounded-2xl shadow-xl group-hover:scale-110 transition-all duration-700">
+                                            {solution.icon}
+                                        </div>
+                                        <div className="h-px flex-1 bg-slate-100"></div>
+                                        <span className="text-[10px] font-bold text-blue-900/40 uppercase tracking-[0.3em]">Sector 0{idx + 3}</span>
+                                    </div>
+                                    <h3 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight group-hover:text-blue-900 transition-colors">
+                                        {solution.title}
+                                    </h3>
+                                    <p className="text-xl text-blue-900/60 font-medium mb-8 leading-snug">
+                                        {solution.subtitle}
+                                    </p>
+                                    <p className="text-slate-500 text-lg leading-relaxed mb-12 font-light whitespace-pre-line">
+                                        {solution.enablement}
+                                    </p>
+                                    <div className="mt-auto grid grid-cols-2 gap-8 pt-10 border-t border-slate-50">
+                                        {solution.stats.slice(0, 2).map((stat, sIdx) => (
+                                            <div key={sIdx}>
+                                                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">{stat.label}</div>
+                                                <div className="text-base font-bold text-slate-900">{stat.value}</div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
-
-                                {/* Luxury Decorative Accents */}
                                 <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-900/[0.02] rounded-full group-hover:scale-150 transition-transform duration-1000 -z-0"></div>
                             </motion.div>
                         ))}
@@ -239,7 +259,7 @@ export default function SolutionsPage() {
                 title="Ready to solve your sector's toughest challenges?"
                 subtitle="Our specialist teams are ready to architect the solution your institution needs."
                 primaryLabel="Speak to our enterprise team"
-                secondaryLabel="Explore Infrastructure"
+                secondaryLabel="View platforms"
                 type="enterprise"
             />
 

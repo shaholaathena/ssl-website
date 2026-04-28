@@ -205,7 +205,7 @@ export default function EcosystemPage() {
 
                             <div className="grid grid-cols-2 gap-12">
                                 <div>
-                                    <div className="text-5xl font-bold text-white mb-2">80K+</div>
+                                    <div className="text-5xl font-bold text-white mb-2">200K+</div>
                                     <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Daily transaction volume</div>
                                 </div>
                                 <div>
@@ -218,7 +218,7 @@ export default function EcosystemPage() {
                         <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-12">
                             <div className="space-y-8">
                                 {[
-                                    { label: "Average transaction latency", value: "< 4s", color: "text-emerald-400" },
+                                    { label: "Response Time:", value: "Near-Instant / Real-Time", color: "text-emerald-400" },
                                     { label: "Data Encryption", value: "AES-256 / RSA-4096", color: "text-white" },
                                 ].map((stat, i) => (
                                     <div key={i} className="flex items-center justify-between py-4 border-b border-white/10 last:border-0">

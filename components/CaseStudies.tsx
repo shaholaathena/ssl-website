@@ -59,7 +59,7 @@ export default function CaseStudies() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        <Link
+                        {/* <Link
                             href="/case-studies"
                             className="group flex items-center gap-3 text-blue-900 font-bold tracking-tight hover:gap-5 transition-all duration-300"
                         >
@@ -67,7 +67,7 @@ export default function CaseStudies() {
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </Link>
+                        </Link> */}
                     </motion.div>
                 </div>
 
@@ -100,7 +100,7 @@ export default function CaseStudies() {
                                 {study.body}
                             </p>
 
-                            <div className="pt-6 border-t border-slate-50">
+                            {/* <div className="pt-6 border-t border-slate-50">
                                 <Link
                                     href={`/case-studies/${study.id}`}
                                     className="text-[11px] font-bold text-slate-400 group-hover:text-blue-900 uppercase tracking-widest flex items-center gap-2 transition-all"
@@ -110,7 +110,7 @@ export default function CaseStudies() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </Link>
-                            </div>
+                            </div> */}
                         </motion.div>
                     ))}
                 </div>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import ContactModal from './ContactModal'
 
 interface GlobalCTAProps {
@@ -47,22 +48,24 @@ export default function GlobalCTA({
                             </p>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-5 w-full lg:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-5 w-full lg:w-auto items-stretch">
                             <motion.button
                                 onClick={() => setIsModalOpen(true)}
-                                className="px-10 py-5 bg-white text-slate-900 font-bold rounded-sm hover:bg-slate-50 transition-all text-center shadow-2xl shadow-black/10 text-[15px]"
+                                className="w-full sm:w-auto px-5 py-5 bg-white text-slate-900 font-bold rounded-sm hover:bg-slate-50 transition-all text-center shadow-2xl shadow-black/10 text-[15px]"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
                                 {primaryLabel}
                             </motion.button>
-                            <motion.button
-                                className="px-10 py-5 bg-transparent text-white border border-slate-700 font-bold rounded-sm hover:bg-white/5 transition-all text-center text-[15px]"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                {secondaryLabel}
-                            </motion.button>
+                            <Link href="/platforms" className="w-full sm:w-auto">
+                                <motion.button
+                                    className="w-full px-5 py-5 bg-transparent text-white border border-slate-700 font-bold rounded-sm hover:bg-white/5 transition-all text-center text-[15px]"
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    {secondaryLabel}
+                                </motion.button>
+                            </Link>
                         </div>
                     </div>
                 </div>

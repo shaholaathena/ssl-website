@@ -9,6 +9,11 @@ import Image from 'next/image'
 
 const milestones = [
     {
+        year: '2022',
+        title: 'SSLCOMMERZ receives NOC as White Label Merchant Acquirer (WLMA)',
+        description: 'SSLCOMMERZ received Bangladesh Bank’s NOC to operate as a Payment System Operator (White Label Merchant Acquirer), strengthening its regulatory standing and expanding its role in Bangladesh’s digital payment ecosystem.'
+    },
+    {
         year: '2021',
         title: 'SSLCOMMERZ launches Bangla QR',
         description: 'SSLCOMMERZ has successfully launched Bangla QR, a unified national QR code for payments, enabling merchants across the country to accept digital payments more easily and securely.'
